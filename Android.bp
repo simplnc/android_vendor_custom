@@ -1,0 +1,132 @@
+android_app_import {
+    name: "org.fossify.gallery",
+    apk: "gallery/org.fossify.gallery.apk",
+    presigned: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    product_specific: true,
+    overrides: [
+        "Gallery",           // AOSP default gallery
+        "Gallery2",          // Alternative AOSP gallery
+        "GalleryGo",         // Google Gallery Go
+        "Photos",            // Google Photos (Pixel)
+        "PixelPhotos",       // Pixel specific Photos app
+        "Eleven",            // LineageOS default gallery
+        "Camera",            // Some ROMs bundle gallery with camera
+        "LegacyCamera",      // Legacy camera/gallery combo
+        "Snap",              // Qualcomm camera/gallery
+        "SnapdragonCamera",  // Snapdragon camera with gallery
+        "OpenCamera",        // Open camera with gallery features
+        "SimpleGallery",     // Simple Gallery alternatives
+        "QuickPic",          // QuickPic gallery
+        "MediaGallery",      // Generic media gallery apps
+        "PhotoGallery",      // Generic photo gallery apps
+        "MediaViewer",       // Basic media viewers
+    ],
+    required: [
+        "privapp_whitelist_org.fossify.gallery",
+        "default_gallery_intent_config",
+    ],
+}
+
+// File Manager App Configuration
+android_app_import {
+    name: "org.fossify.filemanager",
+    apk: "filemanager/org.fossify.filemanager.apk",
+    presigned: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    product_specific: true,
+    overrides: [
+        "DocumentsUI",       // AOSP default file manager (overridden but not removed)
+        "Files",             // Google Files (Pixel)
+        "FileManager",       // Generic file managers
+        "FilesLineage",      // LineageOS file manager
+        "LineageFileManager", // Alternative LineageOS file manager name
+        "File Commander",    // File commander variations
+        "File Explorer",     // Basic file explorers
+        "FileExplorer",      // File explorer variations
+        "Amaze",            // Amaze File Manager
+        "MiXplorer",        // MiXplorer file manager
+        "Root Explorer",     // Root file managers
+        "X-plore",          // X-plore file manager
+        "Ghost Commander",   // Ghost Commander
+        "Downloads",        // Download managers with file browsing
+    ],
+    required: [
+        "privapp_whitelist_org.fossify.filemanager",
+        "default_filemanager_intent_config",
+    ],
+}
+
+// Always On Display Toggle App Configuration
+android_app_import {
+    name: "org.alberto97.aodtoggle",
+    apk: "aodtoggle/org.alberto97.aodtoggle.apk",
+    presigned: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    product_specific: true,
+    overrides: [
+        // No specific overrides - this is an additional utility
+        // Could override similar AOD toggle apps if they exist
+    ],
+    required: [
+        "privapp_whitelist_org.alberto97.aodtoggle",
+        "default_aodtoggle_intent_config",
+    ],
+}
+
+// Permissions whitelist for privileged gallery app
+prebuilt_etc {
+    name: "privapp_whitelist_org.fossify.gallery",
+    sub_dir: "permissions",
+    src: "gallery/privapp-permissions-org.fossify.gallery.xml",
+    filename_from_src: true,
+}
+
+// Default intent configuration for gallery
+prebuilt_etc {
+    name: "default_gallery_intent_config",
+    sub_dir: "sysconfig",
+    src: "gallery/default-gallery-intent.xml",
+    filename: "fossify-gallery-defaults.xml",
+}
+
+// Permissions whitelist for privileged file manager app
+prebuilt_etc {
+    name: "privapp_whitelist_org.fossify.filemanager",
+    sub_dir: "permissions",
+    src: "filemanager/privapp-permissions-org.fossify.filemanager.xml",
+    filename_from_src: true,
+}
+
+// Default intent configuration for file manager
+prebuilt_etc {
+    name: "default_filemanager_intent_config",
+    sub_dir: "sysconfig",
+    src: "filemanager/default-filemanager-intent.xml",
+    filename: "fossify-filemanager-defaults.xml",
+}
+
+// Permissions whitelist for privileged AOD Toggle app
+prebuilt_etc {
+    name: "privapp_whitelist_org.alberto97.aodtoggle",
+    sub_dir: "permissions",
+    src: "aodtoggle/privapp-permissions-org.alberto97.aodtoggle.xml",
+    filename_from_src: true,
+}
+
+// Default intent configuration for AOD Toggle
+prebuilt_etc {
+    name: "default_aodtoggle_intent_config",
+    sub_dir: "sysconfig",
+    src: "aodtoggle/default-aodtoggle-intent.xml",
+    filename: "aodtoggle-defaults.xml",
+}
