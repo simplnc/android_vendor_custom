@@ -1,0 +1,764 @@
+// Android.bp for vendor/custom SystemPrebuilts apps only
+// This file configures all prebuilt applications found in the SystemPrebuilts folder
+// SystemBuild apps are handled by Android.mk files to avoid conflicts
+
+// ============================================================================
+// SYSTEMPREBUILTS APPLICATIONS (Regular apps)
+// ============================================================================
+
+// Browser Applications - User uninstallable
+android_app_import {
+    name: "duckduck",
+    apk: "SystemPrebuilts/browser/duckduck.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Browser",           // AOSP default browser
+        "WebView",           // AOSP webview
+        "Jelly",             // LineageOS browser
+        "Gello",             // Legacy LineageOS browser
+        "Chrome",            // Google Chrome (if present)
+        "Chromium",          // Chromium browser
+        "com.android.browser", // AOSP browser package
+        "com.android.chrome",   // Chrome package
+        "com.google.android.apps.chrome", // Chrome package
+    ],
+}
+
+// Calculator Applications
+android_app_import {
+    name: "CalculatorYou",
+    apk: "SystemPrebuilts/calculator/CalculatorYou-v3.1.2.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Calculator",        // AOSP default calculator
+        "Calculator2",       // Alternative AOSP calculator
+        "DeskClock",         // DeskClock with calculator
+        "LineageCalculator", // LineageOS calculator
+        "OmniCalculator",    // OmniROM calculator
+        "com.android.calculator2", // AOSP calculator package
+        "com.android.calculator",  // AOSP calculator package
+    ],
+}
+
+// Calendar Applications
+android_app_import {
+    name: "calendar.foss",
+    apk: "SystemPrebuilts/calendar/calendar-9-foss-release.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Calendar",          // AOSP default calendar
+        "Calendar2",         // Alternative AOSP calendar
+        "DeskClock",         // DeskClock with calendar
+        "LineageCalendar",   // LineageOS calendar
+        "OmniCalendar",      // OmniROM calendar
+        "Etar",              // Etar calendar
+        "com.android.calendar", // AOSP calendar package
+        "com.android.calendar2", // AOSP calendar package
+    ],
+}
+
+
+// Dictionary Applications
+android_app_import {
+    name: "io.github.yamin8000.owl",
+    apk: "SystemPrebuilts/dictionary/io.github.yamin8000.owl-v46-n1.7.3-release.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Dictionary",        // AOSP dictionary
+        "DictionaryProvider", // Dictionary provider
+        "WordLookup",        // Word lookup apps
+        "Translator",        // Translation apps
+        "com.android.dictionary", // AOSP dictionary package
+        "com.android.translate", // AOSP translate package
+    ],
+}
+
+
+// Music Applications - User uninstallable
+android_app_import {
+    name: "com.mardous.booming",
+    apk: "SystemPrebuilts/music/com.mardous.booming_1040300.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Music",             // AOSP default music
+        "Music2",            // Alternative AOSP music
+        "Eleven",            // LineageOS music player
+        "OmniMusic",         // OmniROM music
+        "AudioPlayer",       // Generic audio players
+        "MediaPlayer",       // Media players
+        "com.android.music", // AOSP music package
+        "com.android.music2", // AOSP music2 package
+    ],
+}
+
+// Ambient Music Applications
+android_app_import {
+    name: "ambient.music",
+    apk: "SystemPrebuilts/amusic/Ambient-Music-v3.3.2.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "AmbientMusic",      // Ambient music apps
+        "BackgroundMusic",   // Background music apps
+        "RelaxingMusic",     // Relaxing music apps
+        "com.android.ambientmusic", // AOSP ambient music package
+    ],
+}
+
+// Recorder Applications
+android_app_import {
+    name: "recordyou",
+    apk: "SystemPrebuilts/recorder/recordyou.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Recorder",          // AOSP default recorder
+        "SoundRecorder",     // Alternative recorder
+        "AudioRecorder",     // Audio recording apps
+        "VoiceRecorder",     // Voice recording apps
+        "LineageRecorder",   // LineageOS recorder
+        "com.android.soundrecorder", // AOSP recorder package
+        "com.android.voicerecorder", // AOSP voice recorder package
+    ],
+}
+
+// Weather Applications - User uninstallable
+android_app_import {
+    name: "org.breezyweather",
+    apk: "SystemPrebuilts/weather/org.breezyweather_50408.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    // Ensure user can uninstall (not a privileged app)
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "Weather",           // AOSP weather
+        "WeatherProvider",   // Weather provider
+        "LineageWeather",    // LineageOS weather
+        "OmniWeather",       // OmniROM weather
+        "Clock",             // Clock with weather
+        "DeskClock",         // DeskClock with weather
+        "com.android.weather", // AOSP weather package
+        "com.android.weatherprovider", // AOSP weather provider package
+    ],
+}
+
+// WiFi Info Applications
+android_app_import {
+    name: "com.truemlgpro.wifiinfo",
+    apk: "SystemPrebuilts/wifiInfo/com.truemlgpro.wifiinfo_1610.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "WifiInfo",          // WiFi information apps
+        "NetworkInfo",       // Network information
+        "WifiAnalyzer",      // WiFi analyzer apps
+        "WifiManager",       // WiFi management apps
+        // Note: Not overriding com.android.wifi or com.android.network to avoid system conflicts
+    ],
+}
+
+// Email Applications
+android_app_import {
+    name: "net.thunderbird.android",
+    apk: "SystemPrebuilts/email/net.thunderbird.android_15.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK    
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Email",             // AOSP default email
+        "Email2",            // Alternative email
+        "Gmail",             // Gmail app
+        "LineageEmail",      // LineageOS email
+        "OmniEmail",         // OmniROM email
+        "com.android.email", // AOSP email package
+        "com.google.android.gm", // Gmail package
+    ],
+}
+
+// Session Messenger Applications
+android_app_import {
+    name: "org.thoughtcrime.securesms",
+    apk: "SystemPrebuilts/session/session-1.28.0-arm64-v8a-play-release.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Session",           // Session messenger
+        "Signal",            // Signal messenger
+        "Messaging",         // AOSP messaging
+        "Messages",          // Alternative messaging
+        "com.android.messaging", // AOSP messaging package
+    ],
+}
+
+// SnapTick Habit Tracker Applications
+android_app_import {
+    name: "com.vishal2376.snaptick",
+    apk: "SystemPrebuilts/snaptick/com.vishal2376.snaptick_11.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "SnapTick",          // Habit tracker apps
+        "HabitTracker",      // Habit tracking
+        "TaskTracker",       // Task tracking
+        "com.android.snaptick", // AOSP snaptick package
+    ],
+}
+
+// Photo Widget Applications
+android_app_import {
+    name: "com.fibelatti.photowidget",
+    apk: "SystemPrebuilts/photo/com.fibelatti.photowidget-v1.32.3-1320300-release.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "PhotoWidget",       // Photo widget apps
+        "ImageWidget",       // Image widget apps
+        "GalleryWidget",    // Gallery widget apps
+        "com.android.photowidget", // AOSP photo widget package
+    ],
+}
+
+
+// Firewall Applications
+android_app_import {
+    name: "firewall",
+    apk: "SystemPrebuilts/firewall/firewall.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Firewall",          // Firewall apps
+        "NetworkFirewall",   // Network firewall
+        "com.android.firewall", // AOSP firewall package
+    ],
+}
+
+// Notes Applications
+android_app_import {
+    name: "com.kin.easynotes",
+    apk: "SystemPrebuilts/notes/com.kin.easynotes_9.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Notes",             // AOSP default notes
+        "Notepad",           // Alternative notes
+        "Keep",              // Google Keep
+        "LineageNotes",      // LineageOS notes
+        "OmniNotes",         // OmniROM notes
+        "com.android.notes", // AOSP notes package
+        "com.google.android.keep", // Google Keep package
+    ],
+}
+
+
+// ============================================================================
+// SYSTEMBUILT APPLICATIONS (Privileged apps) - All APKs are in SystemPrebuilts
+// ============================================================================
+
+// Gallery Applications
+android_app_import {
+    name: "org.fossify.gallery",
+    apk: "SystemPrebuilts/gallery/org.fossify.gallery.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Gallery",           // AOSP default gallery
+        "Gallery2",          // Alternative gallery
+        "GalleryGo",         // Gallery Go
+        "Photos",            // Google Photos
+        "LineageGallery",    // LineageOS gallery
+        "LineageGallery2",   // LineageOS gallery 2
+        "OmniGallery",       // OmniROM gallery
+        "com.android.gallery", // AOSP gallery package
+        "com.android.gallery3d", // AOSP gallery 3D package
+        "com.google.android.apps.photos", // Google Photos package
+        "org.lineageos.gallery", // LineageOS gallery package
+        "org.lineageos.gallery2", // LineageOS gallery 2 package
+        "Glimpse",           // LineageOS Glimpse gallery
+        "com.lineageos.glimpse", // LineageOS Glimpse package
+    ],
+}
+
+// File Manager Applications
+android_app_import {
+    name: "org.fossify.filemanager",
+    apk: "SystemPrebuilts/filemanager/org.fossify.filemanager.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Files",             // AOSP default files
+        "FileManager",       // Alternative file manager
+        "FilesLineage",      // LineageOS files
+        "LineageFileManager", // LineageOS file manager
+        "com.android.documentsui", // AOSP documents UI
+        "com.android.filemanager", // AOSP file manager package
+        "org.lineageos.filemanager", // LineageOS file manager package
+    ],
+}
+
+// Contacts Applications
+android_app_import {
+    name: "org.fossify.contacts",
+    apk: "SystemPrebuilts/contacts/org.fossify.contacts_9.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Contacts",          // AOSP default contacts
+        "People",            // Alternative contacts app
+        "contacts",          // lineage 15 contacts app
+        "LineageContacts",   // LineageOS contacts
+        "OmniContacts",      // OmniROM contacts
+        "com.android.contacts", // AOSP contacts package
+        "com.android.people", // AOSP people package
+        "org.lineageos.contacts", // LineageOS contacts package
+    ],
+}
+
+// Quick Tiles Applications
+android_app_import {
+    name: "QuickTiles",
+    apk: "SystemPrebuilts/quicktiles/QuickTiles.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "TileService",       // Tile services
+        "com.android.quicktiles", // AOSP quick tiles package
+        "com.android.tileservice", // AOSP tile service package
+    ],
+}
+
+// TapTap Applications
+android_app_import {
+    name: "TapTap",
+    apk: "SystemPrebuilts/taptap/TapTap-v1.6.2.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "com.taptap.app",    // TapTap package
+        "com.taptap.taptap", // Alternative TapTap package
+    ],
+}
+
+
+// System Athena Applications
+android_app_import {
+    name: "athena",
+    apk: "SystemPrebuilts/systemAthena/athena.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Athena",            // System athena
+        "SystemAthena",      // Alternative athena
+        "com.android.athena", // AOSP athena package
+        "com.android.systemathena", // AOSP system athena package
+    ],
+}
+
+// Clock Applications - User uninstallable
+android_app_import {
+    name: "chrono",
+    apk: "SystemPrebuilts/clock/chrono-v0.6.0-arm64-v8a.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Clock",             // AOSP default clock
+        "DeskClock",         // Desk clock
+        "LineageClock",      // LineageOS clock
+        "OmniClock",         // OmniROM clock
+        "com.android.deskclock", // AOSP desk clock package
+        "com.android.clock", // AOSP clock package
+        "org.lineageos.clock", // LineageOS clock package
+    ],
+}
+
+// ============================================================================
+// NEW APPLICATIONS (Recently added)
+// ============================================================================
+
+// Daily You Applications
+android_app_import {
+    name: "com.demizo.daily_you",
+    apk: "SystemPrebuilts/dailyyou/com.demizo.daily_you_20120012.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    // Explicitly non-privileged for user uninstallability
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "DailyYou",           // Daily habit tracker apps
+        "HabitTracker",       // Habit tracking apps
+        "TaskManager",        // Task management apps
+        "com.android.dailyyou", // AOSP daily you package
+    ],
+}
+
+// Launchpad Applications
+android_app_import {
+    name: "com.devrinth.launchpad",
+    apk: "SystemPrebuilts/launchpad/com.devrinth.launchpad_764.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "Launchpad",          // Launchpad apps
+        "AppLauncher",        // App launcher apps
+        "QuickLaunch",        // Quick launch apps
+        "com.android.launchpad", // AOSP launchpad package
+    ],
+}
+
+
+// Draw Anywhere Applications
+android_app_import {
+    name: "com.shezik.drawanywhere",
+    apk: "SystemPrebuilts/drawanywhere/com.shezik.drawanywhere_2.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "DrawAnywhere",       // Draw anywhere apps
+        "ScreenDraw",         // Screen drawing apps
+        "Annotation",         // Annotation apps
+        "com.android.drawanywhere", // AOSP draw anywhere package
+    ],
+}
+
+
+// Image Toolbox Applications
+android_app_import {
+    name: "image.toolbox",
+    apk: "SystemPrebuilts/imageToolbox/image-toolbox-3.4.0-alpha01-arm64-v8a.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "ImageToolbox",       // Image toolbox apps
+        "ImageEditor",        // Image editor apps
+        "PhotoEditor",        // Photo editor apps
+        "com.android.imagetoolbox", // AOSP image toolbox package
+    ],
+}
+
+// Native Alpha Applications
+android_app_import {
+    name: "native.alpha",
+    apk: "SystemPrebuilts/nativeAlpha/NativeAlpha-extendedGithub-universal-release-v1.5.2.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "NativeAlpha",        // Native Alpha browser
+        "WebView",            // WebView replacement
+        "Browser",            // Browser replacement
+        "com.android.nativealpha", // Native Alpha package
+    ],
+}
+
+// DigiPaws Applications
+android_app_import {
+    name: "nethical.digipaws",
+    apk: "SystemPrebuilts/digipaws/nethical.digipaws_23.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "DigiPaws",           // DigiPaws apps
+        "DigitalWellbeing",   // Digital wellbeing apps
+        "ScreenTime",         // Screen time apps
+        "com.android.digipaws", // AOSP DigiPaws package
+    ],
+}
+
+// LockLock Applications
+android_app_import {
+    name: "nethical.locklock",
+    apk: "SystemPrebuilts/locklock/nethical.locklock_2.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "LockLock",           // LockLock apps
+        "LockScreen",         // Lock screen apps
+        "CustomLockscreen",   // Custom lock screen apps
+        "com.android.locklock", // AOSP LockLock package
+    ],
+}
+
+// Stario Launcher Applications
+android_app_import {
+    name: "com.stario.launcher",
+    apk: "SystemPrebuilts/starioLauncher/com.stario.launcher_91.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "StarioLauncher",     // Stario launcher apps
+        "CustomLauncher",     // Custom launcher apps
+        "AlternativeLauncher", // Alternative launcher apps
+        "com.android.stariolauncher", // AOSP Stario launcher package
+    ],
+}
+
+// Aurora Applications - Alternative App Store
+android_app_import {
+    name: "AuroraStore",
+    apk: "SystemPrebuilts/Aurora/AuroraStore.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "PlayStore",          // Google Play Store
+        "FakeStore",          // Fake Store
+        "com.android.vending", // Play Store package
+    ],
+}
+
+android_app_import {
+    name: "AuroraServices",
+    apk: "SystemPrebuilts/Aurora/AuroraServices.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,        // Services need privileged access
+    product_specific: true,
+    overrides: [
+        "GoogleServices",     // Google Play Services
+        "GmsCore",            // Google Mobile Services Core
+        "com.google.android.gms", // GMS package
+    ],
+}
+
+android_app_import {
+    name: "AuroraDroid",
+    apk: "SystemPrebuilts/Aurora/AuroraDroid.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "Fdroid",            // F-Droid
+        "org.fdroid.fdroid", // F-Droid package
+    ],
+}
+
+// Backup Transport Applications - System Backup
+// Commented out for now
+/*
+android_app_import {
+    name: "BackupTransport",
+    apk: "SystemPrebuilts/BackupTransport/BackupTransport.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,        // Backup transport needs privileged access
+    product_specific: true,
+    overrides: [
+        "GoogleBackupTransport", // Google Backup Transport
+        "com.google.android.backuptransport", // Google Backup Transport package
+    ],
+}
+*/
+
+// Google Sync Adapters - Calendar Sync
+android_app_import {
+    name: "GoogleCalendarSyncAdapter",
+    apk: "SystemPrebuilts/GoogleCalendarSyncAdapter/GoogleCalendarSyncAdapter.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,        // Sync adapters need privileged access
+    product_specific: true,
+    overrides: [
+        "GoogleCalendarSync", // Google Calendar Sync
+        "com.google.android.syncadapters.calendar", // Google Calendar Sync package
+    ],
+}
+
+// Google Sync Adapters - Contacts Sync
+android_app_import {
+    name: "GoogleContactsSyncAdapter",
+    apk: "SystemPrebuilts/GoogleContactsSyncAdapter/GoogleContactsSyncAdapter.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,        // Sync adapters need privileged access
+    product_specific: true,
+    overrides: [
+        "GoogleContactsSync", // Google Contacts Sync
+        "com.google.android.syncadapters.contacts", // Google Contacts Sync package
+    ],
+}
+
+
+// SpeakThat Applications - Text to Speech
+android_app_import {
+    name: "SpeakThat",
+    apk: "SystemPrebuilts/speakthat/SpeakThat.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "SpeakThat",          // SpeakThat apps
+        "TextToSpeech",       // Text to speech apps
+        "TTS",                // TTS apps
+        "com.android.tts",    // AOSP TTS package
+    ],
+}
+
+// DAVx5 Applications - CalDAV/CardDAV Sync
+android_app_import {
+    name: "at.bitfire.davdroid",
+    apk: "SystemPrebuilts/davx5/at.bitfire.davdroid_405070100.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "DAVx5",             // DAVx5 apps
+        "DavDroid",          // DavDroid apps
+        "CalDAV",            // CalDAV sync apps
+        "CardDAV",           // CardDAV sync apps
+        "com.android.davdroid", // AOSP DavDroid package
+    ],
+}
+
+// ============================================================================
+// NOTE: All apps are now handled by Soong (Android.bp) build system
+// All redundant Android.mk files have been removed
+// ============================================================================
