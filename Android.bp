@@ -1,132 +1,440 @@
+// Android.bp for vendor/custom SystemPrebuilts apps only
+// This file configures all prebuilt applications found in the SystemPrebuilts folder
+// SystemBuild apps are handled by Android.mk files to avoid conflicts
+
+// ============================================================================
+// SYSTEMPREBUILTS APPLICATIONS (Regular apps)
+// ============================================================================
+
+// Browser Applications
+android_app_import {
+    name: "threads.thor",
+    apk: "SystemPrebuilts/browser/threads.thor_176.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Browser",           // AOSP default browser
+        "WebView",           // AOSP webview
+        "Jelly",             // LineageOS browser
+        "Gello",             // Legacy LineageOS browser
+        "Chrome",            // Google Chrome (if present)
+        "Chromium",          // Chromium browser
+        "com.android.browser", // AOSP browser package
+        "com.android.chrome",   // Chrome package
+        "com.google.android.apps.chrome", // Chrome package
+    ],
+}
+
+// Calculator Applications
+android_app_import {
+    name: "CalculatorYou",
+    apk: "SystemPrebuilts/calculator/CalculatorYou-v3.1.2.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Calculator",        // AOSP default calculator
+        "Calculator2",       // Alternative AOSP calculator
+        "DeskClock",         // DeskClock with calculator
+        "LineageCalculator", // LineageOS calculator
+        "OmniCalculator",    // OmniROM calculator
+        "com.android.calculator2", // AOSP calculator package
+        "com.android.calculator",  // AOSP calculator package
+    ],
+}
+
+// Calendar Applications
+android_app_import {
+    name: "calendar.foss",
+    apk: "SystemPrebuilts/calendar/calendar-9-foss-release.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Calendar",          // AOSP default calendar
+        "Calendar2",         // Alternative AOSP calendar
+        "DeskClock",         // DeskClock with calendar
+        "LineageCalendar",   // LineageOS calendar
+        "OmniCalendar",      // OmniROM calendar
+        "Etar",              // Etar calendar
+        "com.android.calendar", // AOSP calendar package
+        "com.android.calendar2", // AOSP calendar package
+    ],
+}
+
+// Data Monitor Applications
+android_app_import {
+    name: "com.drnoob.datamonitor",
+    apk: "SystemPrebuilts/datamonitor/com.drnoob.datamonitor_29.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "DataUsage",         // AOSP data usage
+        "DataManager",       // Data management apps
+        "NetworkUsage",      // Network usage apps
+        "TrafficMonitor",    // Traffic monitoring
+        "com.android.settings", // Settings data usage
+        "com.android.systemui", // SystemUI data usage
+    ],
+}
+
+// Dictionary Applications
+android_app_import {
+    name: "io.github.yamin8000.owl",
+    apk: "SystemPrebuilts/dictionary/io.github.yamin8000.owl-v46-n1.7.3-release.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Dictionary",        // AOSP dictionary
+        "DictionaryProvider", // Dictionary provider
+        "WordLookup",        // Word lookup apps
+        "Translator",        // Translation apps
+        "com.android.dictionary", // AOSP dictionary package
+        "com.android.translate", // AOSP translate package
+    ],
+}
+
+// Flashlight Applications
+android_app_import {
+    name: "com.bitmavrick.lumolight",
+    apk: "SystemPrebuilts/flashlight/com.bitmavrick.lumolight_23.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Flashlight",        // AOSP flashlight
+        "Torch",             // Alternative flashlight
+        "LineageTorch",      // LineageOS torch
+        "OmniTorch",         // OmniROM torch
+        "Camera",            // Camera with flashlight
+        "com.android.flashlight", // AOSP flashlight package
+        "com.android.torch",      // AOSP torch package
+    ],
+}
+
+// Music Applications
+android_app_import {
+    name: "com.mardous.booming",
+    apk: "SystemPrebuilts/music/com.mardous.booming_1040300.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Music",             // AOSP default music
+        "Music2",            // Alternative AOSP music
+        "Eleven",            // LineageOS music player
+        "OmniMusic",         // OmniROM music
+        "AudioPlayer",       // Generic audio players
+        "MediaPlayer",       // Media players
+        "com.android.music", // AOSP music package
+        "com.android.music2", // AOSP music2 package
+    ],
+}
+
+// Recorder Applications
+android_app_import {
+    name: "recordyou",
+    apk: "SystemPrebuilts/recorder/recordyou.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Recorder",          // AOSP default recorder
+        "SoundRecorder",     // Alternative recorder
+        "AudioRecorder",     // Audio recording apps
+        "VoiceRecorder",     // Voice recording apps
+        "LineageRecorder",   // LineageOS recorder
+        "com.android.soundrecorder", // AOSP recorder package
+        "com.android.voicerecorder", // AOSP voice recorder package
+    ],
+}
+
+// Weather Applications
+android_app_import {
+    name: "org.breezyweather",
+    apk: "SystemPrebuilts/weather/org.breezyweather_50408.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Weather",           // AOSP weather
+        "WeatherProvider",   // Weather provider
+        "LineageWeather",    // LineageOS weather
+        "OmniWeather",       // OmniROM weather
+        "Clock",             // Clock with weather
+        "DeskClock",         // DeskClock with weather
+        "com.android.weather", // AOSP weather package
+        "com.android.weatherprovider", // AOSP weather provider package
+    ],
+}
+
+// WiFi Info Applications
+android_app_import {
+    name: "com.truemlgpro.wifiinfo",
+    apk: "SystemPrebuilts/wifiInfo/com.truemlgpro.wifiinfo_1610.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "WifiInfo",          // WiFi information apps
+        "NetworkInfo",       // Network information
+        "WifiAnalyzer",      // WiFi analyzer apps
+        "WifiManager",       // WiFi management apps
+        // Note: Not overriding com.android.wifi or com.android.network to avoid system conflicts
+    ],
+}
+
+// ============================================================================
+// SYSTEMBUILT APPLICATIONS (Privileged apps) - All APKs are in SystemPrebuilts
+// ============================================================================
+
+// Gallery Applications
 android_app_import {
     name: "org.fossify.gallery",
     apk: "SystemPrebuilts/gallery/org.fossify.gallery.apk",
-    presigned: true,
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
     dex_preopt: {
         enabled: false,
     },
-    privileged: true,
     product_specific: true,
     overrides: [
         "Gallery",           // AOSP default gallery
-        "Gallery2",          // Alternative AOSP gallery
-        "GalleryGo",         // Google Gallery Go
-        "Photos",            // Google Photos (Pixel)
-        "PixelPhotos",       // Pixel specific Photos app
-        "Eleven",            // LineageOS default gallery
-        "Camera",            // Some ROMs bundle gallery with camera
-        "LegacyCamera",      // Legacy camera/gallery combo
-        "Snap",              // Qualcomm camera/gallery
-        "SnapdragonCamera",  // Snapdragon camera with gallery
-        "OpenCamera",        // Open camera with gallery features
-        "SimpleGallery",     // Simple Gallery alternatives
-        "QuickPic",          // QuickPic gallery
-        "MediaGallery",      // Generic media gallery apps
-        "PhotoGallery",      // Generic photo gallery apps
-        "MediaViewer",       // Basic media viewers
-    ],
-    required: [
-        "privapp_whitelist_org.fossify.gallery",
-        "default_gallery_intent_config",
+        "Gallery2",          // Alternative gallery
+        "GalleryGo",         // Gallery Go
+        "Photos",            // Google Photos
+        "LineageGallery",    // LineageOS gallery
+        "LineageGallery2",   // LineageOS gallery 2
+        "OmniGallery",       // OmniROM gallery
+        "com.android.gallery", // AOSP gallery package
+        "com.android.gallery3d", // AOSP gallery 3D package
+        "com.google.android.apps.photos", // Google Photos package
+        "org.lineageos.gallery", // LineageOS gallery package
+        "org.lineageos.gallery2", // LineageOS gallery 2 package
+        "Glimpse",           // LineageOS Glimpse gallery
+        "com.lineageos.glimpse", // LineageOS Glimpse package
     ],
 }
 
-// File Manager App Configuration
+// File Manager Applications
 android_app_import {
     name: "org.fossify.filemanager",
     apk: "SystemPrebuilts/filemanager/org.fossify.filemanager.apk",
-    presigned: true,
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
     dex_preopt: {
         enabled: false,
     },
-    privileged: true,
     product_specific: true,
     overrides: [
-        "DocumentsUI",       // AOSP default file manager (overridden but not removed)
-        "Files",             // Google Files (Pixel)
-        "FileManager",       // Generic file managers
-        "FilesLineage",      // LineageOS file manager
-        "LineageFileManager", // Alternative LineageOS file manager name
-        "File Commander",    // File commander variations
-        "File Explorer",     // Basic file explorers
-        "FileExplorer",      // File explorer variations
-        "Amaze",            // Amaze File Manager
-        "MiXplorer",        // MiXplorer file manager
-        "Root Explorer",     // Root file managers
-        "X-plore",          // X-plore file manager
-        "Ghost Commander",   // Ghost Commander
-        "Downloads",        // Download managers with file browsing
-    ],
-    required: [
-        "privapp_whitelist_org.fossify.filemanager",
-        "default_filemanager_intent_config",
+        "Files",             // AOSP default files
+        "FileManager",       // Alternative file manager
+        "FilesLineage",      // LineageOS files
+        "LineageFileManager", // LineageOS file manager
+        "com.android.documentsui", // AOSP documents UI
+        "com.android.filemanager", // AOSP file manager package
+        "org.lineageos.filemanager", // LineageOS file manager package
     ],
 }
 
-// Always On Display Toggle App Configuration
+// Contacts Applications
 android_app_import {
-    name: "org.alberto97.aodtoggle",
-    apk: "SystemPrebuilts/aodtoggle/org.alberto97.aodtoggle.apk",
-    presigned: true,
+    name: "com.bnyro.contacts",
+    apk: "SystemPrebuilts/contacts/com.bnyro.contacts_29.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
     dex_preopt: {
         enabled: false,
     },
-    privileged: true,
     product_specific: true,
     overrides: [
-        // No specific overrides - this is an additional utility
-        // Could override similar AOD toggle apps if they exist
+        "Contacts",          // AOSP default contacts
+        "People",            // Alternative contacts app
+        "contacts",          // lineage 15 contacts app
+        "LineageContacts",   // LineageOS contacts
+        "OmniContacts",      // OmniROM contacts
+        "com.android.contacts", // AOSP contacts package
+        "com.android.people", // AOSP people package
+        "org.lineageos.contacts", // LineageOS contacts package
     ],
-    required: [
-        "privapp_whitelist_org.alberto97.aodtoggle",
-        "default_aodtoggle_intent_config",
+}
+
+// Quick Tiles Applications
+android_app_import {
+    name: "QuickTiles",
+    apk: "SystemPrebuilts/quicktiles/QuickTiles.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "TileService",       // Tile services
+        "com.android.quicktiles", // AOSP quick tiles package
+        "com.android.tileservice", // AOSP tile service package
     ],
 }
 
-// Permissions whitelist for privileged gallery app
-prebuilt_etc {
-    name: "privapp_whitelist_org.fossify.gallery",
-    sub_dir: "permissions",
-    src: "SystemPrebuilts/gallery/privapp-permissions-org.fossify.gallery.xml",
-    filename_from_src: true,
+// TapTap Applications
+android_app_import {
+    name: "TapTap",
+    apk: "SystemPrebuilts/taptap/TapTap-v1.6.2.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "com.kieronquinn.app.taptap", // TapTap package
+    ],
 }
 
-// Default intent configuration for gallery
-prebuilt_etc {
-    name: "default_gallery_intent_config",
-    sub_dir: "sysconfig",
-    src: "SystemPrebuilts/gallery/default-gallery-intent.xml",
-    filename: "fossify-gallery-defaults.xml",
+// DNS Applications
+android_app_import {
+    name: "com.celzero.bravedns_478",
+    apk: "SystemPrebuilts/rethink/com.celzero.bravedns_478.apk",
+    preprocessed: false,     // Contains compressed JNI libraries
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "com.celzero.bravedns", // BraveDNS package
+    ],
 }
 
-// Permissions whitelist for privileged file manager app
-prebuilt_etc {
-    name: "privapp_whitelist_org.fossify.filemanager",
-    sub_dir: "permissions",
-    src: "SystemPrebuilts/filemanager/privapp-permissions-org.fossify.filemanager.xml",
-    filename_from_src: true,
+// Phone Applications
+android_app_import {
+    name: "org.fossify.phone",
+    apk: "SystemPrebuilts/phone/org.fossify.phone_11.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Dialer",            // AOSP dialer UI only
+        "Dialer2",           // Alternative dialer UI only
+        "LineageDialer",     // LineageOS dialer UI only
+        "OmniDialer",        // OmniROM dialer UI only
+        // Note: NOT overriding com.android.phone or com.android.dialer to preserve telephony services
+    ],
 }
 
-// Default intent configuration for file manager
-prebuilt_etc {
-    name: "default_filemanager_intent_config",
-    sub_dir: "sysconfig",
-    src: "SystemPrebuilts/filemanager/default-filemanager-intent.xml",
-    filename: "fossify-filemanager-defaults.xml",
+// System Athena Applications
+android_app_import {
+    name: "athena",
+    apk: "SystemPrebuilts/systemAthena/athena.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Athena",            // System athena
+        "SystemAthena",      // Alternative athena
+        "com.android.athena", // AOSP athena package
+        "com.android.systemathena", // AOSP system athena package
+    ],
 }
 
-// Permissions whitelist for privileged AOD Toggle app
-prebuilt_etc {
-    name: "privapp_whitelist_org.alberto97.aodtoggle",
-    sub_dir: "permissions",
-    src: "SystemPrebuilts/aodtoggle/privapp-permissions-org.alberto97.aodtoggle.xml",
-    filename_from_src: true,
+// Clock Applications
+android_app_import {
+    name: "chrono",
+    apk: "SystemPrebuilts/clock/chrono-v0.6.0-arm64-v8a.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Clock",             // AOSP default clock
+        "DeskClock",         // Desk clock
+        "LineageClock",      // LineageOS clock
+        "OmniClock",         // OmniROM clock
+        "com.android.deskclock", // AOSP desk clock package
+        "com.android.clock", // AOSP clock package
+        "org.lineageos.clock", // LineageOS clock package
+    ],
 }
 
-// Default intent configuration for AOD Toggle
-prebuilt_etc {
-    name: "default_aodtoggle_intent_config",
-    sub_dir: "sysconfig",
-    src: "SystemPrebuilts/aodtoggle/default-aodtoggle-intent.xml",
-    filename: "aodtoggle-defaults.xml",
+// Dual Wallpaper Applications
+android_app_import {
+    name: "dualwall",
+    apk: "SystemPrebuilts/dualWallpaper/dualwall.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "com.celzero.dualwall", // Dual wallpaper package
+    ],
 }
+
+// Quick Tiles Applications - Already defined above
+
+// File Manager Applications - Already defined above
+
+// Contacts Applications - Already defined above
+
+// Phone Applications - Already defined above
+
+// Gallery Applications - Already defined above
+
+// Notes Applications
+android_app_import {
+    name: "notes",
+    apk: "SystemPrebuilts/notes/notes.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Notes",             // AOSP default notes
+        "NotePad",           // Alternative AOSP notes
+        "StickyNotes",       // System sticky notes
+        "com.android.notes", // AOSP notes package
+        "com.android.notepad", // AOSP notepad package
+    ],
+}
+
+// ============================================================================
+// NOTE: All apps are now handled by Soong (Android.bp) build system
+// All redundant Android.mk files have been removed
+// ============================================================================

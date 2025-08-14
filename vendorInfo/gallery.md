@@ -3,13 +3,17 @@
 This vendor overlay ensures that **Fossify Gallery** becomes the default and only gallery application across all Android ROMs including LineageOS, AOSP, and Pixel builds.
 
 ## Overview
+- **App Name**: FOSSify Gallery
+- **Package**: org.fossify.gallery
+- **Type**: Regular System App
+- **Replaces**: Default Android gallery apps
 
-This configuration:
-- ✅ Replaces ALL existing gallery apps (AOSP, LineageOS, Pixel, etc.)
-- ✅ Grants comprehensive permissions automatically
-- ✅ Sets Fossify Gallery as the default for all media intents
-- ✅ Removes conflicting gallery applications from the build
-- ✅ Provides privileged system app status
+## APK Details
+- **File**: `SystemPrebuilts/gallery/org.fossify.gallery.apk`
+- **Size**: Varies by version
+- **Version**: Latest stable release
+- **Architecture**: ARM64/ARM
+- **Special Note**: Contains compressed DEX files
 
 ## Replaced Applications
 
@@ -85,6 +89,35 @@ android_vendor_custom/
 │       └── default-gallery-intent.xml         # Intent handlers
 └── README.md                                   # This file
 ```
+
+## Build Configuration (Android.bp)
+```bp
+android_app_import {
+    name: "org.fossify.gallery",
+    apk: "SystemPrebuilts/gallery/org.fossify.gallery.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Gallery",           // AOSP default gallery
+        "Gallery2",          // Alternative AOSP gallery
+        "Photos",            // Google Photos (if present)
+        "Glimpse",           // LineageOS gallery
+        "glimpse",           // Alternative glimpse
+        "com.android.gallery", // AOSP gallery package
+        "com.android.gallery2", // AOSP gallery2 package
+        "com.google.android.apps.photos", // Google Photos package
+        "org.lineageos.glimpse", // LineageOS glimpse package
+    ],
+}
+```
+
+## Installation Location
+- **Path**: `/system/app/org.fossify.gallery/`
+- **Type**: Regular system app (system/app)
 
 ## Integration
 

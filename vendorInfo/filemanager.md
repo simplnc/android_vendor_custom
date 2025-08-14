@@ -3,13 +3,17 @@
 This vendor overlay ensures that **Fossify File Manager** becomes the default and only file management application across all Android ROMs including LineageOS, AOSP, and Pixel builds.
 
 ## Overview
+- **App Name**: FOSSify File Manager
+- **Package**: org.fossify.filemanager
+- **Type**: Regular System App
+- **Replaces**: Default Android file manager apps
 
-This configuration:
-- ✅ Replaces ALL existing file manager apps (AOSP, LineageOS, Pixel, etc.)
-- ✅ Grants comprehensive file management permissions automatically
-- ✅ Sets Fossify File Manager as the default for all file browsing intents
-- ✅ Removes conflicting file management applications from the build
-- ✅ Provides privileged system app status with full file system access
+## APK Details
+- **File**: `SystemPrebuilts/filemanager/org.fossify.filemanager.apk`
+- **Size**: Varies by version
+- **Version**: Latest stable release
+- **Architecture**: ARM64/ARM
+- **Special Note**: Contains compressed DEX files
 
 ## Replaced Applications
 
@@ -157,6 +161,33 @@ android_vendor_custom/
 ├── gallery.md                                  # Gallery documentation
 └── filemanager.md                             # This file
 ```
+
+## Build Configuration (Android.bp)
+```bp
+android_app_import {
+    name: "org.fossify.filemanager",
+    apk: "SystemPrebuilts/filemanager/org.fossify.filemanager.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Files",             // AOSP default files
+        "FileManager",       // Alternative file manager
+        "FilesLineage",      // LineageOS files
+        "LineageFileManager", // LineageOS file manager
+        "com.android.documentsui", // AOSP documents UI
+        "com.android.filemanager", // AOSP file manager package
+        "org.lineageos.filemanager", // LineageOS file manager package
+    ],
+}
+```
+
+## Installation Location
+- **Path**: `/system/app/org.fossify.filemanager/`
+- **Type**: Regular system app (system/app)
 
 ## Integration
 

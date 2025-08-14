@@ -1,37 +1,111 @@
-# Custom Gallery, File Manager, and AOD Toggle App Override Configuration
-# This configuration ensures Fossify Gallery, File Manager, and AOD Toggle replace all default apps
+# Custom LineageOS Configuration
+# This configuration replaces default system apps with custom alternatives
 
-# Apps and their associated configuration modules
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/custom
+
+# SystemPrebuilts Apps (APK files)
 PRODUCT_PACKAGES += \
-	org.fossify.gallery \
-	privapp_whitelist_org.fossify.gallery \
-	default_gallery_intent_config \
-	org.fossify.filemanager \
-	privapp_whitelist_org.fossify.filemanager \
-	default_filemanager_intent_config \
-	org.alberto97.aodtoggle \
-	privapp_whitelist_org.alberto97.aodtoggle \
-	default_aodtoggle_intent_config
+    threads.thor \
+    CalculatorYou \
+    calendar.foss \
+    com.drnoob.datamonitor \
+    io.github.yamin8000.owl \
+    com.bitmavrick.lumolight \
+    com.mardous.booming \
+    recordyou \
+    org.breezyweather \
+    com.truemlgpro.wifiinfo \
+    com.celzero.bravedns_478 \
+    TapTap \
+    dualwall \
+    QuickTiles \
+    org.fossify.filemanager \
+    com.bnyro.contacts \
+    org.fossify.phone \
+    org.fossify.gallery \
+    notes 
 
-# Make Fossify Gallery the default gallery app
+# SystemBuild Apps (Built from source)
+PRODUCT_PACKAGES += \
+    athena \
+    chrono \
+    bcr
+
+# Default app configurations
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.config.gallery_default=org.fossify.gallery \
-	ro.config.filemanager_default=org.fossify.filemanager
+    ro.config.browser_default=threads.thor \
+    ro.config.calculator_default=CalculatorYou \
+    ro.config.calendar_default=calendar.foss \
+    ro.config.datamonitor_default=com.drnoob.datamonitor \
+    ro.config.dictionary_default=io.github.yamin8000.owl \
+    ro.config.flashlight_default=com.bitmavrick.lumolight \
+    ro.config.music_default=com.mardous.booming \
+    ro.config.recorder_default=recordyou \
+    ro.config.weather_default=org.breezyweather \
+    ro.config.wifiinfo_default=com.truemlgpro.wifiinfo \
+    ro.config.gallery_default=org.fossify.gallery \
+    ro.config.filemanager_default=org.fossify.filemanager \
+    ro.config.contacts_default=com.bnyro.contacts \
+    ro.config.dns_default=com.celzero.bravedns_478
 
-# Remove conflicting gallery apps from build
+# Remove conflicting system apps
 PRODUCT_PACKAGES_REMOVE += \
-	Gallery \
-	Gallery2 \
-	Photos \
-	Eleven
+    Gallery \
+    Gallery2 \
+    GalleryGo \
+    Photos \
+    LineageGallery \
+    LineageGallery2 \
+    OmniGallery \
+    com.android.gallery \
+    com.android.gallery3d \
+    com.google.android.apps.photos \
+    org.lineageos.gallery \
+    org.lineageos.gallery2 \
+    Glimpse \
+    com.lineageos.glimpse \
+    Browser \
+    Browser2 \
+    com.android.browser \
+    com.android.browser2 \
+    WebView \
+    WebViewGoogle \
+    SystemWebView \
+    com.android.webview \
+    com.google.android.webview \
+    org.chromium.webview_shell
 
-# Remove conflicting file manager apps from build
-# Note: DocumentsUI is overridden but not removed to preserve dependencies
-PRODUCT_PACKAGES_REMOVE += \
-	Files \
-	FileManager \
-	FilesLineage \
-	LineageFileManager
+# Build system optimizations
+RELAX_USES_LIBRARY_CHECK=true
 
-# Privileged app permissions are handled by Android.bp prebuilt_etc modules
-# No manual PRODUCT_COPY_FILES needed - handled automatically by build system 
+# Dex preopt settings
+DEX_PREOPT_DEFAULT := false
+DEX_PREOPT_APP := false
+DEX_PREOPT_BOOT_IMG := false
+PRODUCT_DEX_PREOPT_APP := false
+PRODUCT_DEX_PREOPT_BOOT_IMG := false
+PRODUCT_DEX_PREOPT_DEFAULT := false
+PRODUCT_DEX_PREOPT_WIFI := false
+
+# WiFi system server configuration
+PRODUCT_SYSTEM_SERVER_JARS += service-wifi
+PRODUCT_PACKAGES += \
+    com.android.wifi \
+    service-wifi
+
+# WiFi artifact path requirements
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/framework/oat/arm64/apex@com.android.wifi@javalib@service-wifi.jar@classes.odex \
+    system/framework/oat/arm64/apex@com.android.wifi@javalib@service-wifi.jar@classes.vdex
+
+# Critical telephony services
+PRODUCT_PACKAGES += \
+    com.android.phone \
+    com.android.dialer \
+    TeleService \
+    TelephonyProvider \
+    CallLogProvider
+
+
