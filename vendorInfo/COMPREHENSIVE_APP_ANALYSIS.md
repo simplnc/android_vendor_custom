@@ -99,14 +99,7 @@ The configuration provides a complete replacement for the default LineageOS app 
 
 ### **🛡️ Privacy & Security Applications**
 
-#### **11. DNS (com.celzero.bravedns_478)**
-- **Purpose**: Privacy-focused DNS resolver
-- **Size**: 27.0MB APK
-- **Overrides**: System DNS, default resolvers
-- **Features**: DNS over HTTPS, ad blocking, privacy protection
-- **Default**: `ro.config.dns_default=com.celzero.bravedns_478`
-
-#### **12. Gesture Control (TapTap)**
+#### **11. Gesture Control (TapTap)**
 - **Purpose**: Advanced gesture navigation
 - **Size**: 18.0MB APK
 - **Overrides**: System gesture controls
@@ -115,14 +108,7 @@ The configuration provides a complete replacement for the default LineageOS app 
 
 ### **🎨 System Utility Applications**
 
-#### **13. Dual Wallpaper (dualwall)**
-- **Purpose**: Dynamic wallpaper management
-- **Size**: 2.2MB APK
-- **Overrides**: System wallpaper apps
-- **Features**: Dual wallpaper support, themes, customization
-- **Default**: System wallpaper replacement
-
-#### **14. Quick Tiles (QuickTiles)**
+#### **12. Quick Tiles (QuickTiles)**
 - **Purpose**: Customizable quick settings
 - **Size**: 2.0MB APK
 - **Overrides**: AOSP TileService, system quick tiles
@@ -136,54 +122,34 @@ The configuration provides a complete replacement for the default LineageOS app 
 - **Features**: Root access, cloud storage, compression
 - **Default**: `ro.config.filemanager_default=org.fossify.filemanager`
 
-#### **16. Contacts (com.bnyro.contacts)**
+#### **13. Contacts (com.bnyro.contacts)**
 - **Purpose**: Contacts management replacement
 - **Size**: 4.0MB APK
 - **Overrides**: AOSP Contacts, LineageContacts, OmniContacts
 - **Features**: Modern UI, contact sync, groups
 - **Default**: `ro.config.contacts_default=com.bnyro.contacts`
 
-#### **17. Phone (org.fossify.phone)**
-- **Purpose**: Enhanced dialer interface
-- **Size**: 8.5MB APK
-- **Overrides**: AOSP Dialer, LineageDialer, OmniDialer
-- **Features**: Call recording, spam protection, smart dialing
-- **Default**: `ro.config.phone_default=org.fossify.phone`
-
-#### **18. Gallery (org.fossify.gallery)**
+#### **14. Gallery (org.fossify.gallery)**
 - **Purpose**: Photo gallery replacement
 - **Size**: 22.0MB APK
 - **Overrides**: AOSP Gallery, Photos, LineageGallery, OmniGallery
 - **Features**: Advanced editing, cloud sync, organization
 - **Default**: `ro.config.gallery_default=org.fossify.gallery`
 
-#### **19. Notes (notes)**
-- **Purpose**: Productivity note-taking replacement
-- **Size**: 911KB APK
-- **Overrides**: AOSP Notes, NotePad, StickyNotes
-- **Features**: Note creation, organization, search, sync
-- **Default**: System notes application replacement
-
-## 🔧 **SystemBuild Applications (3 Apps)**
+## 🔧 **SystemBuild Applications (2 Apps)**
 
 ### **System Tools**
 
-#### **19. Athena (athena)**
+#### **15. Athena (athena)**
 - **Purpose**: System maintenance and optimization
 - **Type**: Source built
 - **Features**: System cleanup, optimization, maintenance tools
 - **Installation**: SystemBuild/priv-app
 
-#### **20. Chrono (chrono)**
+#### **16. Chrono (chrono)**
 - **Purpose**: Advanced clock and timer
 - **Type**: Source built
 - **Features**: Multiple timers, stopwatch, world clock
-- **Installation**: SystemBuild/priv-app
-
-#### **21. BCR (bcr)**
-- **Purpose**: Boot certification and recovery
-- **Type**: Source built
-- **Features**: Boot verification, recovery tools, system integrity
 - **Installation**: SystemBuild/priv-app
 
 ## 🔄 **App Replacement Strategy**

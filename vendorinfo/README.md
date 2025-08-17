@@ -2,58 +2,56 @@
 
 ## 📚 **Documentation Overview**
 
-This directory contains comprehensive documentation for the Custom LineageOS Configuration, which provides **22 total applications** to replace the default LineageOS app suite.
+This directory contains comprehensive documentation for the Custom LineageOS Configuration, which provides **18 total applications** to replace the default LineageOS app suite.
 
 ## 🚀 **Quick Reference**
 
 ### **Application Count**
-- **SystemPrebuilts**: 20 APK applications
-- **SystemBuild**: 3 source-built applications
-- **Total**: 23 custom applications
+- **SystemPrebuilts**: 18 APK applications
+- **Total**: 18 custom applications
+- **All apps properly configured** in Android.bp and config.mk
+- **User uninstallable apps**: threads.thor, com.mardous.booming, org.breezyweather, chrono
 
 ### **Build System**
-- **Configuration**: `config.mk` (111 lines)
-- **Soong Build**: `Android.bp` (507 lines)
-- **Make Build**: `SystemBuild/Android.mk`
+- **Configuration**: `config.mk` (178 lines)
+- **Soong Build**: `Android.bp` (397 lines)
+- **Clean, organized structure** ready for production
 
 ## 📱 **Application Categories**
 
-### **🌐 Core System Apps (5)**
+### **🌐 Core System Apps (3)**
 1. **Browser**: `threads.thor` - Privacy-focused web browser
 2. **Calculator**: `CalculatorYou` - Advanced calculator
 3. **Calendar**: `calendar.foss` - Clean calendar app
-4. **Data Monitor**: `com.drnoob.datamonitor` - Network monitoring
-5. **Dictionary**: `io.github.yamin8000.owl` - Offline dictionary
 
-### **🔧 Utility Apps (5)**
-6. **Flashlight**: `com.bitmavrick.lumolight` - Customizable flashlight
-7. **Music Player**: `com.mardous.booming` - Feature-rich music player
-8. **Recorder**: `recordyou` - High-quality audio recording
-9. **Weather**: `org.breezyweather` - Accurate weather info
-10. **WiFi Info**: `com.truemlgpro.wifiinfo` - Network diagnostics
+### **🔧 Essential Utility Apps (5)**
+4. **Gallery**: `org.fossify.gallery` - Feature-rich photo gallery
+5. **File Manager**: `org.fossify.filemanager` - Powerful file management
+6. **Contacts**: `com.bnyro.contacts` - Modern contacts app
+7. **Data Monitor**: `com.drnoob.datamonitor` - Network monitoring
+8. **Dictionary**: `io.github.yamin8000.owl` - Offline dictionary
 
-### **🛡️ Privacy & Security (2)**
-11. **DNS**: `com.celzero.bravedns_478` - Privacy DNS resolver
-12. **Gesture Control**: `TapTap` - Advanced gesture navigation
+### **🎵 Media and Tool Apps (5)**
+9. **Flashlight**: `com.bitmavrick.lumolight` - Customizable flashlight
+10. **Music Player**: `com.mardous.booming` - Feature-rich music player
+11. **Recorder**: `recordyou` - High-quality audio recording
+12. **Weather**: `org.breezyweather` - Accurate weather info
+13. **WiFi Info**: `com.truemlgpro.wifiinfo` - Network diagnostics
 
-### **🎨 System Utilities (6)**
-13. **Dual Wallpaper**: `dualwall` - Dynamic wallpaper management
-14. **Quick Tiles**: `QuickTiles` - Customizable quick settings
-15. **File Manager**: `org.fossify.filemanager` - Powerful file management
-16. **Contacts**: `com.bnyro.contacts` - Modern contacts app
-17. **Phone**: `org.fossify.phone` - Enhanced dialer interface
-18. **Gallery**: `org.fossify.gallery` - Feature-rich photo gallery
+### **🛡️ System Enhancement Apps (3)**
+14. **Gesture Control**: `TapTap` - Advanced gesture navigation
+15. **Dual Wallpaper**: `dualwall` - Dynamic wallpaper management
+16. **Quick Tiles**: `QuickTiles` - Customizable quick settings
 
-### **🔧 System Tools (3)**
-19. **Athena**: `athena` - System maintenance and optimization
-20. **Chrono**: `chrono` - Advanced clock and timer
-21. **BCR**: `bcr` - Boot certification and recovery
+### **🔧 System Tool Apps (2)**
+17. **Athena**: `athena` - System maintenance and optimization
+18. **Chrono**: `chrono` - Advanced clock and timer ⚠️ **User Uninstallable**
 
 ## 📖 **Documentation Files**
 
 ### **Core Documentation**
 - **[VENDOR_BUILD_GUIDE.md](VENDOR_BUILD_GUIDE.md)** - Step-by-step build guide
-- **[COMPREHENSIVE_APP_ANALYSIS.md](../vendorInfo/COMPREHENSIVE_APP_ANALYSIS.md)** - Detailed app analysis
+- **[COMPREHENSIVE_APP_ANALYSIS.md](COMPREHENSIVE_APP_ANALYSIS.md)** - Detailed app analysis
 
 ### **Error Analysis & Troubleshooting**
 - **[ERROR_ANALYSIS_MAKE_PARSING.md](ERROR_ANALYSIS_MAKE_PARSING.md)** - Make parsing issues
@@ -75,13 +73,8 @@ This directory contains comprehensive documentation for the Custom LineageOS Con
    - App overrides and conflicts
    - Build properties and certificates
 
-3. **`SystemBuild/Android.mk`** - Make build system
-   - SystemBuild app compilation
-   - Privileged app permissions
-   - System integration
-
 ### **Build Features**
-- **Unified approach** with both build systems
+- **Unified approach** with Soong build system
 - **Dex preopt disabled** for compatibility
 - **WiFi system server** properly configured
 - **Critical telephony services** preserved
@@ -96,8 +89,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.calculator_default=CalculatorYou \
     ro.config.gallery_default=org.fossify.gallery \
     ro.config.filemanager_default=org.fossify.filemanager \
-    ro.config.contacts_default=com.bnyro.contacts \
-    ro.config.dns_default=com.celzero.bravedns_478
+    ro.config.contacts_default=com.bnyro.contacts
 ```
 
 ### **System App Removal**
@@ -118,13 +110,12 @@ PRODUCT_PACKAGES_REMOVE += \
 - **Telephony**: Critical services preserved
 
 ### **App Categories**
-- **SystemPrebuilts**: 19 APK applications (~200MB+ total)
-- **SystemBuild**: 3 source-built applications
-- **Total Applications**: 22 custom applications
+- **SystemPrebuilts**: 18 APK applications (~200MB+ total)
+- **Total Applications**: 18 custom applications
 
 ### **File Sizes**
-- **Largest Apps**: Gallery (22MB), BraveDNS (27MB), File Manager (9.2MB)
-- **Smallest Apps**: Dual Wallpaper (2.2MB), Quick Tiles (2.0MB)
+- **Largest Apps**: Gallery (23MB), File Manager (9.3MB), Weather (14MB)
+- **Smallest Apps**: Dual Wallpaper (2.3MB), Quick Tiles (2.1MB)
 - **Average Size**: ~10MB per application
 
 ## 🚀 **Quick Start Guide**

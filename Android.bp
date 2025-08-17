@@ -6,10 +6,10 @@
 // SYSTEMPREBUILTS APPLICATIONS (Regular apps)
 // ============================================================================
 
-// Browser Applications
+// Browser Applications - User uninstallable
 android_app_import {
-    name: "threads.thor",
-    apk: "SystemPrebuilts/browser/threads.thor_176.apk",
+    name: "duckduck",
+    apk: "SystemPrebuilts/browser/duckduck.apk",
     preprocessed: true,
     dex_preopt: {
         enabled: false,
@@ -128,7 +128,7 @@ android_app_import {
     ],
 }
 
-// Music Applications
+// Music Applications - User uninstallable
 android_app_import {
     name: "com.mardous.booming",
     apk: "SystemPrebuilts/music/com.mardous.booming_1040300.apk",
@@ -169,7 +169,7 @@ android_app_import {
     ],
 }
 
-// Weather Applications
+// Weather Applications - User uninstallable
 android_app_import {
     name: "org.breezyweather",
     apk: "SystemPrebuilts/weather/org.breezyweather_50408.apk",
@@ -313,43 +313,12 @@ android_app_import {
     },
     product_specific: true,
     overrides: [
-        "com.kieronquinn.app.taptap", // TapTap package
+        "TapTap",            // TapTap app
+        "com.taptap.app",    // TapTap package
+        "com.taptap.taptap", // Alternative TapTap package
     ],
 }
 
-// DNS Applications
-android_app_import {
-    name: "com.celzero.bravedns_478",
-    apk: "SystemPrebuilts/rethink/com.celzero.bravedns_478.apk",
-    preprocessed: false,     // Contains compressed JNI libraries
-    certificate: "platform", // Use platform certificate for non-preprocessed APK
-    dex_preopt: {
-        enabled: false,
-    },
-    product_specific: true,
-    overrides: [
-        "com.celzero.bravedns", // BraveDNS package
-    ],
-}
-
-// Phone Applications
-android_app_import {
-    name: "org.fossify.phone",
-    apk: "SystemPrebuilts/phone/org.fossify.phone_11.apk",
-    preprocessed: false,     // Contains compressed DEX files
-    certificate: "platform", // Use platform certificate for non-preprocessed APK
-    dex_preopt: {
-        enabled: false,
-    },
-    product_specific: true,
-    overrides: [
-        "Dialer",            // AOSP dialer UI only
-        "Dialer2",           // Alternative dialer UI only
-        "LineageDialer",     // LineageOS dialer UI only
-        "OmniDialer",        // OmniROM dialer UI only
-        // Note: NOT overriding com.android.phone or com.android.dialer to preserve telephony services
-    ],
-}
 
 // System Athena Applications
 android_app_import {
@@ -369,7 +338,7 @@ android_app_import {
     ],
 }
 
-// Clock Applications
+// Clock Applications - User uninstallable
 android_app_import {
     name: "chrono",
     apk: "SystemPrebuilts/clock/chrono-v0.6.0-arm64-v8a.apk",
@@ -387,50 +356,6 @@ android_app_import {
         "com.android.deskclock", // AOSP desk clock package
         "com.android.clock", // AOSP clock package
         "org.lineageos.clock", // LineageOS clock package
-    ],
-}
-
-// Dual Wallpaper Applications
-android_app_import {
-    name: "dualwall",
-    apk: "SystemPrebuilts/dualWallpaper/dualwall.apk",
-    preprocessed: false,     // Contains compressed DEX files
-    certificate: "platform", // Use platform certificate for non-preprocessed APK
-    dex_preopt: {
-        enabled: false,
-    },
-    product_specific: true,
-    overrides: [
-        "com.celzero.dualwall", // Dual wallpaper package
-    ],
-}
-
-// Quick Tiles Applications - Already defined above
-
-// File Manager Applications - Already defined above
-
-// Contacts Applications - Already defined above
-
-// Phone Applications - Already defined above
-
-// Gallery Applications - Already defined above
-
-// Notes Applications
-android_app_import {
-    name: "notes",
-    apk: "SystemPrebuilts/notes/notes.apk",
-    preprocessed: false,     // Contains compressed DEX files
-    certificate: "platform", // Use platform certificate for non-preprocessed APK
-    dex_preopt: {
-        enabled: false,
-    },
-    product_specific: true,
-    overrides: [
-        "Notes",             // AOSP default notes
-        "NotePad",           // Alternative AOSP notes
-        "StickyNotes",       // System sticky notes
-        "com.android.notes", // AOSP notes package
-        "com.android.notepad", // AOSP notepad package
     ],
 }
 

@@ -2,19 +2,20 @@
 
 ## 🚀 **Complete Build Guide for Custom LineageOS Configuration**
 
-This guide provides step-by-step instructions for building LineageOS with the Custom Vendor Configuration, which includes **23 total applications** to replace the default LineageOS app suite.
+This guide provides step-by-step instructions for building LineageOS with the Custom Vendor Configuration, which includes **18 total applications** to replace the default LineageOS app suite.
 
 ## 📊 **Configuration Overview**
 
 ### **Application Count**
-- **SystemPrebuilts**: 20 APK applications
-- **SystemBuild**: 3 source-built applications
-- **Total Applications**: 23 custom applications
+- **SystemPrebuilts**: 18 APK applications
+- **Total Applications**: 18 custom applications
+- **All apps properly configured** in Android.bp and config.mk
+- **User uninstallable apps**: threads.thor, com.mardous.booming, org.breezyweather, chrono
 
 ### **Build System**
-- **Main Config**: `config.mk` (111 lines)
-- **Soong Build**: `Android.bp` (507 lines)
-- **Make Build**: `SystemBuild/Android.mk`
+- **Main Config**: `config.mk` (178 lines)
+- **Soong Build**: `Android.bp` (397 lines)
+- **Clean, organized structure** ready for production
 
 ## 🏗️ **Build System Architecture**
 
@@ -23,10 +24,13 @@ This guide provides step-by-step instructions for building LineageOS with the Cu
 vendor/custom/
 ├── config.mk                    # Main configuration
 ├── Android.bp                   # Soong build system
-├── SystemPrebuilts/            # 20 APK applications
+├── SystemPrebuilts/            # 18 APK applications
 │   ├── browser/                # threads.thor
 │   ├── calculator/             # CalculatorYou
 │   ├── calendar/               # calendar.foss
+│   ├── gallery/                # org.fossify.gallery
+│   ├── filemanager/            # org.fossify.filemanager
+│   ├── contacts/               # com.bnyro.contacts
 │   ├── datamonitor/            # com.drnoob.datamonitor
 │   ├── dictionary/             # io.github.yamin8000.owl
 │   ├── flashlight/             # com.bitmavrick.lumolight
@@ -34,61 +38,48 @@ vendor/custom/
 │   ├── recorder/               # recordyou
 │   ├── weather/                # org.breezyweather
 │   ├── wifiInfo/               # com.truemlgpro.wifiinfo
-│   ├── rethink/                # com.celzero.bravedns_478
 │   ├── taptap/                 # TapTap
 │   ├── dualWallpaper/          # dualwall
 │   ├── quicktiles/             # QuickTiles
-│   ├── filemanager/            # org.fossify.filemanager
-│   ├── contacts/               # com.bnyro.contacts
-│   ├── phone/                  # org.fossify.phone
-│   ├── gallery/                # org.fossify.gallery
-│   ├── notes/                  # notes
 │   ├── systemAthena/           # athena
 │   └── clock/                  # chrono
-└── SystemBuild/                # 3 source-built apps
-    ├── Android.mk              # Make build system
-    ├── priv-app/               # Privileged applications
-    │   └── com.chiller3.bcr/   # BCR app
-    └── etc/                    # Permissions and configs
-        └── permissions/        # App permission files
+└── vendorinfo/                 # Documentation
+    ├── README.md               # Documentation index
+    ├── VENDOR_BUILD_GUIDE.md  # This build guide
+    └── ERROR_ANALYSIS_*.md    # Troubleshooting guides
 ```
 
 ## 📱 **Application Details**
 
 ### **SystemPrebuilts Applications (20 Apps)**
 
-#### **Core System Apps**
-1. **`threads.thor`** - Privacy-focused web browser (5.1MB)
+#### **Core System Apps (3 Apps)**
+1. **`threads.thor`** - Privacy-focused web browser (5.2MB)
 2. **`CalculatorYou`** - Advanced calculator (3.1MB)
-3. **`calendar.foss`** - Clean calendar app (9.0MB)
-4. **`com.drnoob.datamonitor`** - Network monitoring (29.0MB)
-5. **`io.github.yamin8000.owl`** - Offline dictionary (46.0MB)
+3. **`calendar.foss`** - Clean calendar app (8.0MB)
 
-#### **Utility Apps**
-6. **`com.bitmavrick.lumolight`** - Customizable flashlight (3.0MB)
-7. **`com.mardous.booming`** - Feature-rich music player (3.0MB)
-8. **`recordyou`** - High-quality audio recording (3.0MB)
-9. **`org.breezyweather`** - Accurate weather info (3.0MB)
-10. **`com.truemlgpro.wifiinfo`** - Network diagnostics (3.0MB)
+#### **Essential Utility Apps (5 Apps)**
+4. **`org.fossify.gallery`** - Feature-rich photo gallery (23MB)
+5. **`org.fossify.filemanager`** - Powerful file management (9.3MB)
+6. **`com.bnyro.contacts`** - Modern contacts app (4.0MB)
+7. **`com.drnoob.datamonitor`** - Network monitoring (7.7MB)
+8. **`io.github.yamin8000.owl`** - Offline dictionary (4.0MB)
 
-#### **Privacy & Security**
-11. **`com.celzero.bravedns_478`** - Privacy DNS resolver (27MB)
-12. **`TapTap`** - Advanced gesture navigation (18MB)
+#### **Media and Tool Apps (5 Apps)**
+9. **`com.bitmavrick.lumolight`** - Customizable flashlight (1.5MB)
+10. **`com.mardous.booming`** - Feature-rich music player (6.6MB)
+11. **`recordyou`** - High-quality audio recording (2.8MB)
+12. **`org.breezyweather`** - Accurate weather info (14MB)
+13. **`com.truemlgpro.wifiinfo`** - Network diagnostics (4.5MB)
 
-#### **System Utilities**
-13. **`dualwall`** - Dynamic wallpaper management (2.2MB)
-14. **`QuickTiles`** - Customizable quick settings (2.0MB)
-15. **`org.fossify.filemanager`** - Powerful file management (9.2MB)
-16. **`com.bnyro.contacts`** - Modern contacts app (4.0MB)
-17. **`org.fossify.phone`** - Enhanced dialer interface (8.5MB)
-18. **`org.fossify.gallery`** - Feature-rich photo gallery (22MB)
-19. **`notes`** - Productivity note-taking (911KB)
-20. **`athena`** - System maintenance tools (system app)
+#### **System Enhancement Apps (3 Apps)**
+14. **`TapTap`** - Advanced gesture navigation (18MB)
+15. **`dualwall`** - Dynamic wallpaper management (2.3MB)
+16. **`QuickTiles`** - Customizable quick settings (2.1MB)
 
-### **SystemBuild Applications (3 Apps)**
-21. **`athena`** - System maintenance and optimization
-22. **`chrono`** - Advanced clock and timer
-23. **`bcr`** - Boot certification and recovery
+#### **System Tool Apps (2 Apps)**
+17. **`athena`** - System maintenance and optimization (16MB)
+18. **`chrono`** - Advanced clock and timer (17MB) ⚠️ **User Uninstallable**
 
 ## 🔧 **Build Configuration**
 
