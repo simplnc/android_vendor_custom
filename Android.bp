@@ -313,7 +313,6 @@ android_app_import {
     },
     product_specific: true,
     overrides: [
-        "TapTap",            // TapTap app
         "com.taptap.app",    // TapTap package
         "com.taptap.taptap", // Alternative TapTap package
     ],
