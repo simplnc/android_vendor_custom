@@ -2,19 +2,19 @@
 
 ## 🚀 **Complete Build Guide for Custom LineageOS Configuration**
 
-This guide provides step-by-step instructions for building LineageOS with the Custom Vendor Configuration, which includes **18 total applications** to replace the default LineageOS app suite.
+This guide provides step-by-step instructions for building LineageOS with the Custom Vendor Configuration, which includes **23 total applications** to replace the default LineageOS app suite.
 
 ## 📊 **Configuration Overview**
 
 ### **Application Count**
-- **SystemPrebuilts**: 18 APK applications
-- **Total Applications**: 18 custom applications
+- **SystemPrebuilts**: 23 APK applications
+- **Total Applications**: 23 custom applications
 - **All apps properly configured** in Android.bp and config.mk
-- **User uninstallable apps**: threads.thor, com.mardous.booming, org.breezyweather, chrono
+- **User uninstallable apps**: duckduck, com.mardous.booming, org.breezyweather, chrono
 
 ### **Build System**
-- **Main Config**: `config.mk` (178 lines)
-- **Soong Build**: `Android.bp` (397 lines)
+- **Main Config**: `config.mk` (127 lines)
+- **Soong Build**: `Android.bp` (465 lines)
 - **Clean, organized structure** ready for production
 
 ## 🏗️ **Build System Architecture**
@@ -24,8 +24,8 @@ This guide provides step-by-step instructions for building LineageOS with the Cu
 vendor/custom/
 ├── config.mk                    # Main configuration
 ├── Android.bp                   # Soong build system
-├── SystemPrebuilts/            # 18 APK applications
-│   ├── browser/                # threads.thor
+├── SystemPrebuilts/            # 23 APK applications
+│   ├── browser/                # duckduck
 │   ├── calculator/             # CalculatorYou
 │   ├── calendar/               # calendar.foss
 │   ├── gallery/                # org.fossify.gallery
@@ -33,14 +33,19 @@ vendor/custom/
 │   ├── contacts/               # com.bnyro.contacts
 │   ├── datamonitor/            # com.drnoob.datamonitor
 │   ├── dictionary/             # io.github.yamin8000.owl
+│   ├── email/                  # net.thunderbird.android
 │   ├── flashlight/             # com.bitmavrick.lumolight
 │   ├── music/                  # com.mardous.booming
 │   ├── recorder/               # recordyou
 │   ├── weather/                # org.breezyweather
 │   ├── wifiInfo/               # com.truemlgpro.wifiinfo
+│   ├── photo/                  # com.fibelatti.photowidget
 │   ├── taptap/                 # TapTap
-│   ├── dualWallpaper/          # dualwall
 │   ├── quicktiles/             # QuickTiles
+│   ├── dualWallpaper/          # dualwall
+│   ├── firewall/               # firewall
+│   ├── notes/                  # com.kin.easynotes
+│   ├── paperize/               # paperize
 │   ├── systemAthena/           # athena
 │   └── clock/                  # chrono
 └── vendorinfo/                 # Documentation
@@ -51,35 +56,40 @@ vendor/custom/
 
 ## 📱 **Application Details**
 
-### **SystemPrebuilts Applications (20 Apps)**
+### **SystemPrebuilts Applications (23 Apps)**
 
 #### **Core System Apps (3 Apps)**
-1. **`threads.thor`** - Privacy-focused web browser (5.2MB)
-2. **`CalculatorYou`** - Advanced calculator (3.1MB)
-3. **`calendar.foss`** - Clean calendar app (8.0MB)
+1. **`duckduck`** - Privacy-focused web browser (~5MB)
+2. **`CalculatorYou`** - Advanced calculator (~3MB)
+3. **`calendar.foss`** - Clean calendar app (~8MB)
 
-#### **Essential Utility Apps (5 Apps)**
-4. **`org.fossify.gallery`** - Feature-rich photo gallery (23MB)
-5. **`org.fossify.filemanager`** - Powerful file management (9.3MB)
-6. **`com.bnyro.contacts`** - Modern contacts app (4.0MB)
-7. **`com.drnoob.datamonitor`** - Network monitoring (7.7MB)
-8. **`io.github.yamin8000.owl`** - Offline dictionary (4.0MB)
+#### **Essential Utility Apps (6 Apps)**
+4. **`org.fossify.gallery`** - Feature-rich photo gallery (~23MB)
+5. **`org.fossify.filemanager`** - Powerful file management (~9MB)
+6. **`com.bnyro.contacts`** - Modern contacts app (~4MB)
+7. **`com.drnoob.datamonitor`** - Network monitoring (~8MB)
+8. **`io.github.yamin8000.owl`** - Offline dictionary (~4MB)
+9. **`net.thunderbird.android`** - Privacy-focused email client (~15MB)
 
-#### **Media and Tool Apps (5 Apps)**
-9. **`com.bitmavrick.lumolight`** - Customizable flashlight (1.5MB)
-10. **`com.mardous.booming`** - Feature-rich music player (6.6MB)
-11. **`recordyou`** - High-quality audio recording (2.8MB)
-12. **`org.breezyweather`** - Accurate weather info (14MB)
-13. **`com.truemlgpro.wifiinfo`** - Network diagnostics (4.5MB)
+#### **Media and Tool Apps (6 Apps)**
+10. **`com.bitmavrick.lumolight`** - Customizable flashlight (~2MB)
+11. **`com.mardous.booming`** - Feature-rich music player (~7MB)
+12. **`recordyou`** - High-quality audio recording (~3MB)
+13. **`org.breezyweather`** - Accurate weather info (~14MB)
+14. **`com.truemlgpro.wifiinfo`** - Network diagnostics (~5MB)
+15. **`com.fibelatti.photowidget`** - Home screen photo widgets (~3MB)
 
-#### **System Enhancement Apps (3 Apps)**
-14. **`TapTap`** - Advanced gesture navigation (18MB)
-15. **`dualwall`** - Dynamic wallpaper management (2.3MB)
-16. **`QuickTiles`** - Customizable quick settings (2.1MB)
+#### **System Enhancement Apps (6 Apps)**
+16. **`TapTap`** - Advanced gesture navigation (~18MB)
+17. **`QuickTiles`** - Customizable quick settings (~2MB)
+18. **`dualwall`** - Dual wallpaper management (~2MB)
+19. **`firewall`** - Network firewall and security (~3MB)
+20. **`com.kin.easynotes`** - Simple note-taking app (~4MB)
+21. **`paperize`** - Document scanning and OCR (~5MB)
 
 #### **System Tool Apps (2 Apps)**
-17. **`athena`** - System maintenance and optimization (16MB)
-18. **`chrono`** - Advanced clock and timer (17MB) ⚠️ **User Uninstallable**
+22. **`athena`** - System maintenance and optimization (~16MB)
+23. **`chrono`** - Advanced clock and timer (~17MB) ⚠️ **User Uninstallable**
 
 ## 🔧 **Build Configuration**
 
@@ -94,24 +104,29 @@ PRODUCT_SOONG_NAMESPACES += \
 #### **SystemPrebuilts Packages**
 ```makefile
 PRODUCT_PACKAGES += \
-    threads.thor \
+    duckduck \
     CalculatorYou \
     calendar.foss \
+    org.fossify.gallery \
+    org.fossify.filemanager \
+    com.bnyro.contacts \
     com.drnoob.datamonitor \
     io.github.yamin8000.owl \
+    net.thunderbird.android \
     com.bitmavrick.lumolight \
     com.mardous.booming \
     recordyou \
     org.breezyweather \
     com.truemlgpro.wifiinfo \
-    com.celzero.bravedns_478 \
+    com.fibelatti.photowidget \
     TapTap \
-    dualwall \
     QuickTiles \
-    org.fossify.filemanager \
-    com.bnyro.contacts \
-    org.fossify.phone \
-    org.fossify.gallery
+    dualwall \
+    firewall \
+    com.kin.easynotes \
+    paperize \
+    athena \
+    chrono
 ```
 
 #### **SystemBuild Packages**
@@ -125,13 +140,20 @@ PRODUCT_PACKAGES += \
 #### **Default App Configurations**
 ```makefile
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.browser_default=threads.thor \
+    ro.config.browser_default=duckduck \
     ro.config.calculator_default=CalculatorYou \
     ro.config.calendar_default=calendar.foss \
     ro.config.gallery_default=org.fossify.gallery \
     ro.config.filemanager_default=org.fossify.filemanager \
     ro.config.contacts_default=com.bnyro.contacts \
-    ro.config.dns_default=com.celzero.bravedns_478
+    ro.config.flashlight_default=com.bitmavrick.lumolight \
+    ro.config.music_default=com.mardous.booming \
+    ro.config.recorder_default=recordyou \
+    ro.config.weather_default=org.breezyweather \
+    ro.config.wifiinfo_default=com.truemlgpro.wifiinfo \
+    ro.config.email_default=net.thunderbird.android \
+    ro.config.notes_default=com.kin.easynotes \
+    ro.config.photo_default=com.fibelatti.photowidget
 ```
 
 #### **System App Removal**

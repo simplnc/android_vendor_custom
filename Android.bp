@@ -210,6 +210,111 @@ android_app_import {
     ],
 }
 
+// Email Applications
+android_app_import {
+    name: "net.thunderbird.android",
+    apk: "SystemPrebuilts/email/net.thunderbird.android_15.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Email",             // AOSP default email
+        "Email2",            // Alternative email
+        "Gmail",             // Gmail app
+        "LineageEmail",      // LineageOS email
+        "OmniEmail",         // OmniROM email
+        "com.android.email", // AOSP email package
+        "com.google.android.gm", // Gmail package
+    ],
+}
+
+// Photo Widget Applications
+android_app_import {
+    name: "com.fibelatti.photowidget",
+    apk: "SystemPrebuilts/photo/com.fibelatti.photowidget-v1.32.3-1320300-release.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "PhotoWidget",       // Photo widget apps
+        "ImageWidget",       // Image widget apps
+        "GalleryWidget",    // Gallery widget apps
+        "com.android.photowidget", // AOSP photo widget package
+    ],
+}
+
+// Dual Wallpaper Applications
+android_app_import {
+    name: "dualwall",
+    apk: "SystemPrebuilts/dualWallpaper/dualwall.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "DualWallpaper",    // Dual wallpaper apps
+        "WallpaperManager",  // Wallpaper management
+        "com.android.wallpaper", // AOSP wallpaper package
+    ],
+}
+
+// Firewall Applications
+android_app_import {
+    name: "firewall",
+    apk: "SystemPrebuilts/firewall/firewall.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Firewall",          // Firewall apps
+        "NetworkFirewall",   // Network firewall
+        "com.android.firewall", // AOSP firewall package
+    ],
+}
+
+// Notes Applications
+android_app_import {
+    name: "com.kin.easynotes",
+    apk: "SystemPrebuilts/notes/com.kin.easynotes_9.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Notes",             // AOSP default notes
+        "Notepad",           // Alternative notes
+        "Keep",              // Google Keep
+        "LineageNotes",      // LineageOS notes
+        "OmniNotes",         // OmniROM notes
+        "com.android.notes", // AOSP notes package
+        "com.google.android.keep", // Google Keep package
+    ],
+}
+
+// Paperize Applications
+android_app_import {
+    name: "paperize",
+    apk: "SystemPrebuilts/paperize/paperize-v3.1.2.apk",
+    preprocessed: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    overrides: [
+        "Paperize",          // Paperize apps
+        "DocumentScanner",   // Document scanning
+        "com.android.paperize", // AOSP paperize package
+    ],
+}
+
 // ============================================================================
 // SYSTEMBUILT APPLICATIONS (Privileged apps) - All APKs are in SystemPrebuilts
 // ============================================================================

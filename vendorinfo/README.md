@@ -2,50 +2,55 @@
 
 ## 📚 **Documentation Overview**
 
-This directory contains comprehensive documentation for the Custom LineageOS Configuration, which provides **18 total applications** to replace the default LineageOS app suite.
+This directory contains comprehensive documentation for the Custom LineageOS Configuration, which provides **23 total applications** to replace the default LineageOS app suite.
 
 ## 🚀 **Quick Reference**
 
 ### **Application Count**
-- **SystemPrebuilts**: 18 APK applications
-- **Total**: 18 custom applications
+- **SystemPrebuilts**: 23 APK applications
+- **Total**: 23 custom applications
 - **All apps properly configured** in Android.bp and config.mk
-- **User uninstallable apps**: threads.thor, com.mardous.booming, org.breezyweather, chrono
+- **User uninstallable apps**: duckduck, com.mardous.booming, org.breezyweather, chrono
 
 ### **Build System**
-- **Configuration**: `config.mk` (178 lines)
-- **Soong Build**: `Android.bp` (397 lines)
+- **Configuration**: `config.mk` (127 lines)
+- **Soong Build**: `Android.bp` (465 lines)
 - **Clean, organized structure** ready for production
 
 ## 📱 **Application Categories**
 
 ### **🌐 Core System Apps (3)**
-1. **Browser**: `threads.thor` - Privacy-focused web browser
+1. **Browser**: `duckduck` - Privacy-focused web browser
 2. **Calculator**: `CalculatorYou` - Advanced calculator
 3. **Calendar**: `calendar.foss` - Clean calendar app
 
-### **🔧 Essential Utility Apps (5)**
+### **🔧 Essential Utility Apps (6)**
 4. **Gallery**: `org.fossify.gallery` - Feature-rich photo gallery
 5. **File Manager**: `org.fossify.filemanager` - Powerful file management
 6. **Contacts**: `com.bnyro.contacts` - Modern contacts app
 7. **Data Monitor**: `com.drnoob.datamonitor` - Network monitoring
 8. **Dictionary**: `io.github.yamin8000.owl` - Offline dictionary
+9. **Email**: `net.thunderbird.android` - Privacy-focused email client
 
-### **🎵 Media and Tool Apps (5)**
-9. **Flashlight**: `com.bitmavrick.lumolight` - Customizable flashlight
-10. **Music Player**: `com.mardous.booming` - Feature-rich music player
-11. **Recorder**: `recordyou` - High-quality audio recording
-12. **Weather**: `org.breezyweather` - Accurate weather info
-13. **WiFi Info**: `com.truemlgpro.wifiinfo` - Network diagnostics
+### **🎵 Media and Tool Apps (6)**
+10. **Flashlight**: `com.bitmavrick.lumolight` - Customizable flashlight
+11. **Music Player**: `com.mardous.booming` - Feature-rich music player
+12. **Recorder**: `recordyou` - High-quality audio recording
+13. **Weather**: `org.breezyweather` - Accurate weather info
+14. **WiFi Info**: `com.truemlgpro.wifiinfo` - Network diagnostics
+15. **Photo Widget**: `com.fibelatti.photowidget` - Home screen photo widgets
 
-### **🛡️ System Enhancement Apps (3)**
-14. **Gesture Control**: `TapTap` - Advanced gesture navigation
-15. **Dual Wallpaper**: `dualwall` - Dynamic wallpaper management
-16. **Quick Tiles**: `QuickTiles` - Customizable quick settings
+### **🛡️ System Enhancement Apps (6)**
+16. **Gesture Control**: `TapTap` - Advanced gesture navigation
+17. **Quick Tiles**: `QuickTiles` - Customizable quick settings
+18. **Dual Wallpaper**: `dualwall` - Dual wallpaper management
+19. **Firewall**: `firewall` - Network firewall and security
+20. **Notes**: `com.kin.easynotes` - Simple note-taking app
+21. **Document Scanner**: `paperize` - Document scanning and OCR
 
 ### **🔧 System Tool Apps (2)**
-17. **Athena**: `athena` - System maintenance and optimization
-18. **Chrono**: `chrono` - Advanced clock and timer ⚠️ **User Uninstallable**
+22. **Athena**: `athena` - System maintenance and optimization
+23. **Chrono**: `chrono` - Advanced clock and timer ⚠️ **User Uninstallable**
 
 ## 📖 **Documentation Files**
 
@@ -85,11 +90,14 @@ This directory contains comprehensive documentation for the Custom LineageOS Con
 All custom apps are configured as system defaults through property overrides:
 ```makefile
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.browser_default=threads.thor \
+    ro.config.browser_default=duckduck \
     ro.config.calculator_default=CalculatorYou \
     ro.config.gallery_default=org.fossify.gallery \
     ro.config.filemanager_default=org.fossify.filemanager \
-    ro.config.contacts_default=com.bnyro.contacts
+    ro.config.contacts_default=com.bnyro.contacts \
+    ro.config.email_default=net.thunderbird.android \
+    ro.config.notes_default=com.kin.easynotes \
+    ro.config.photo_default=com.fibelatti.photowidget
 ```
 
 ### **System App Removal**
@@ -110,13 +118,13 @@ PRODUCT_PACKAGES_REMOVE += \
 - **Telephony**: Critical services preserved
 
 ### **App Categories**
-- **SystemPrebuilts**: 18 APK applications (~200MB+ total)
-- **Total Applications**: 18 custom applications
+- **SystemPrebuilts**: 23 APK applications (~200MB+ total)
+- **Total Applications**: 23 custom applications
 
 ### **File Sizes**
-- **Largest Apps**: Gallery (23MB), File Manager (9.3MB), Weather (14MB)
-- **Smallest Apps**: Dual Wallpaper (2.3MB), Quick Tiles (2.1MB)
-- **Average Size**: ~10MB per application
+- **Largest Apps**: Gallery (~23MB), Email (~15MB), Weather (~14MB)
+- **Smallest Apps**: Dual Wallpaper (~2MB), Quick Tiles (~2MB)
+- **Average Size**: ~9MB per application
 
 ## 🚀 **Quick Start Guide**
 
@@ -135,7 +143,7 @@ make bacon
 ```
 
 ### **3. Verification**
-- Check that all 22 apps are included
+- Check that all 23 apps are included
 - Verify default app configurations
 - Confirm system app removal
 
@@ -219,7 +227,7 @@ grep -r "PRODUCT_PACKAGES_REMOVE" vendor/custom/
 ---
 
 **Status**: Production Ready ✅  
-**Total Apps**: 23 (20 SystemPrebuilts + 3 SystemBuild)  
+**Total Apps**: 23 (23 SystemPrebuilts)  
 **Build System**: Unified Soong + Make  
 **Compatibility**: LineageOS 18.1+ / Android 12+  
 **Last Updated**: Current configuration

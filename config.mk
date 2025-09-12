@@ -11,26 +11,32 @@ PRODUCT_PACKAGES += \
     CalculatorYou \
     calendar.foss
 
-# Essential Utility Applications (5 apps)
+# Essential Utility Applications (6 apps)
 PRODUCT_PACKAGES += \
     org.fossify.gallery \
     org.fossify.filemanager \
     com.bnyro.contacts \
     com.drnoob.datamonitor \
-    io.github.yamin8000.owl
+    io.github.yamin8000.owl \
+    net.thunderbird.android
 
-# Media and Tool Applications (5 apps)
+# Media and Tool Applications (6 apps)
 PRODUCT_PACKAGES += \
     com.bitmavrick.lumolight \
     com.mardous.booming \
     recordyou \
     org.breezyweather \
-    com.truemlgpro.wifiinfo
+    com.truemlgpro.wifiinfo \
+    com.fibelatti.photowidget
 
-# System Enhancement Applications (5 apps)
+# System Enhancement Applications (6 apps)
 PRODUCT_PACKAGES += \
     TapTap \
-    QuickTiles 
+    QuickTiles \
+    dualwall \
+    firewall \
+    com.kin.easynotes \
+    paperize
 
 # System Tool Applications (2 apps)
 PRODUCT_PACKAGES += \
@@ -49,7 +55,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.music_default=com.mardous.booming \
     ro.config.recorder_default=recordyou \
     ro.config.weather_default=org.breezyweather \
-    ro.config.wifiinfo_default=com.truemlgpro.wifiinfo 
+    ro.config.wifiinfo_default=com.truemlgpro.wifiinfo \
+    ro.config.email_default=net.thunderbird.android \
+    ro.config.notes_default=com.kin.easynotes \
+    ro.config.photo_default=com.fibelatti.photowidget 
 
 
 # Build system optimizations
