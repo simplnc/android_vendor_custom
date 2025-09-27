@@ -3,19 +3,19 @@
 [![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 [![LineageOS](https://img.shields.io/badge/LineageOS-18.1+-green.svg)](https://lineageos.org/)
 [![Android](https://img.shields.io/badge/Android-12+-brightgreen.svg)](https://www.android.com/)
-[![FOSS](https://img.shields.io/badge/FOSS-23%20Apps-orange.svg)](https://opensource.org/)
+[![FOSS](https://img.shields.io/badge/FOSS-29%20Apps-orange.svg)](https://opensource.org/)
 [![Privacy](https://img.shields.io/badge/Privacy-First-red.svg)](https://privacyguides.org/)
 [![Security](https://img.shields.io/badge/Security-Hardened-yellow.svg)](https://www.grapheneos.org/)
 
 ## 🌟 **Project Overview**
 
-This vendor configuration represents a **complete paradigm shift** in Android customization, transforming your LineageOS build by replacing default system applications with **23 meticulously curated Free and Open Source Software (FOSS) applications**. Our configuration provides a comprehensive, privacy-focused, and feature-rich alternative to proprietary system apps while maintaining full compatibility with LineageOS and adhering to Android security best practices.
+This vendor configuration represents a **complete paradigm shift** in Android customization, transforming your LineageOS build by replacing default system applications with **29 meticulously curated Free and Open Source Software (FOSS) applications**. Our configuration provides a comprehensive, privacy-focused, and feature-rich alternative to proprietary system apps while maintaining full compatibility with LineageOS and adhering to Android security best practices.
 
 ### **What This Vendor Does**
 
 This vendor configuration automatically performs a **complete system application replacement**:
 
-- **Replaces 23 default system applications** with superior FOSS alternatives that prioritize user privacy and security
+- **Replaces 29 default system applications** with superior FOSS alternatives that prioritize user privacy and security
 - **Integrates applications seamlessly** into the LineageOS build system using modern Soong build configuration
 - **Configures default app associations** through Android property overrides for optimal user experience
 - **Maintains system stability** while enhancing functionality through careful dependency management
@@ -150,16 +150,28 @@ This vendor configuration leverages **advanced Android system integration techni
 | **WiFi Info** | `com.truemlgpro.wifiinfo` | Network diagnostics and WiFi analysis tools | ~5MB |
 | **Photo Widget** | `com.fibelatti.photowidget` | Home screen photo widgets with customization | ~3MB |
 
-### **🛡️ System Enhancement Applications (6 Apps)**
+### **🛡️ System Enhancement Applications (4 Apps)**
 
 | Application | Package | Description | Size |
 |-------------|---------|-------------|------|
 | **TapTap** | `TapTap` | Advanced gesture navigation and accessibility | ~18MB |
 | **QuickTiles** | `QuickTiles` | Customizable quick settings tiles | ~2MB |
-| **Dual Wallpaper** | `dualwall` | Separate wallpapers for lock and home screens | ~2MB |
 | **Firewall** | `firewall` | Network firewall with app-level control | ~3MB |
 | **Easy Notes** | `com.kin.easynotes` | Simple, efficient note-taking application | ~4MB |
-| **Paperize** | `paperize` | Document scanning with OCR capabilities | ~5MB |
+
+### **🆕 New Applications (9 Apps)**
+
+| Application | Package | Description | Size |
+|-------------|---------|-------------|------|
+| **Daily You** | `com.demizo.daily_you` | Daily habit tracker and task manager | ~12MB |
+| **Launchpad** | `com.devrinth.launchpad` | Custom app launcher with shortcuts | ~8MB |
+| **Privacium** | `com.kaleedtc.privacium` | Privacy-focused system manager | ~6MB |
+| **Draw Anywhere** | `com.shezik.drawanywhere` | Screen drawing and annotation tool | ~4MB |
+| **Stario Launcher** | `com.stario.launcher` | Alternative home screen launcher | ~15MB |
+| **Image Toolbox** | `image.toolbox` | Advanced image editing and tools | ~14MB |
+| **Native Alpha** | `native.alpha` | Privacy-focused browser with WebView | ~22MB |
+| **DigiPaws** | `nethical.digipaws` | Digital wellbeing and screen time | ~8MB |
+| **LockLock** | `nethical.locklock` | Custom lock screen customization | ~5MB |
 
 ### **🔧 System Tool Applications (2 Apps)**
 
@@ -454,21 +466,22 @@ Each application has detailed documentation including:
 ## 📈 **Comprehensive Project Statistics**
 
 ### **Application Metrics**
-- **Total Applications**: 23 FOSS applications
-- **Total Size**: ~200MB (optimized for modern devices)
+- **Total Applications**: 29 FOSS applications
+- **Total Size**: ~250MB (optimized for modern devices)
 - **Average App Size**: ~9MB per application
 - **Largest Application**: Simple Gallery (~23MB)
-- **Smallest Application**: Dual Wallpaper (~2MB)
+- **Smallest Application**: QuickTiles (~2MB)
 - **Core System Apps**: 3 applications
 - **Essential Utility Apps**: 6 applications
-- **Media and Tool Apps**: 6 applications
-- **System Enhancement Apps**: 6 applications
+- **Media and Tool Apps**: 5 applications
+- **System Enhancement Apps**: 4 applications
+- **New Applications**: 9 applications
 - **System Tool Apps**: 2 applications
 
 ### **Technical Specifications**
 - **Build System**: Unified Soong + Make configuration
 - **Configuration Files**: 2 main configuration files (config.mk, Android.bp)
-- **Configuration Lines**: 127 lines config.mk, 465 lines Android.bp
+- **Configuration Lines**: 153 lines config.mk, 580 lines Android.bp
 - **Compatibility**: LineageOS 18.1+ / Android 12+
 - **Architecture**: ARM64 (arm64-v8a) with ARM32 compatibility
 - **API Level**: Android 12+ (API level 31+) with forward compatibility
@@ -501,8 +514,8 @@ Each application has detailed documentation including:
 
 ### **Integration Metrics**
 - **System Integration**: 100% integration with Android system services
-- **Default App Replacement**: 23 default system applications replaced
-- **Property Overrides**: 14 comprehensive property overrides
+- **Default App Replacement**: 29 default system applications replaced
+- **Property Overrides**: 21 comprehensive property overrides
 - **SELinux Integration**: Proper SELinux context configuration
 - **Permission Management**: Comprehensive permission configuration
 - **Service Integration**: Full integration with Android system services

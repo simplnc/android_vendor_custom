@@ -2,19 +2,19 @@
 
 ## 🚀 **Complete Build Guide for Custom LineageOS Configuration**
 
-This guide provides step-by-step instructions for building LineageOS with the Custom Vendor Configuration, which includes **23 total applications** to replace the default LineageOS app suite.
+This guide provides step-by-step instructions for building LineageOS with the Custom Vendor Configuration, which includes **29 total applications** to replace the default LineageOS app suite.
 
 ## 📊 **Configuration Overview**
 
 ### **Application Count**
-- **SystemPrebuilts**: 23 APK applications
-- **Total Applications**: 23 custom applications
+- **SystemPrebuilts**: 29 APK applications
+- **Total Applications**: 29 custom applications
 - **All apps properly configured** in Android.bp and config.mk
 - **User uninstallable apps**: duckduck, com.mardous.booming, org.breezyweather, chrono
 
 ### **Build System**
-- **Main Config**: `config.mk` (127 lines)
-- **Soong Build**: `Android.bp` (465 lines)
+- **Main Config**: `config.mk` (153 lines)
+- **Soong Build**: `Android.bp` (580 lines)
 - **Clean, organized structure** ready for production
 
 ## 🏗️ **Build System Architecture**

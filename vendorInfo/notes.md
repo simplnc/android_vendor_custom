@@ -76,3 +76,4 @@ The application is automatically installed as a system app during LineageOS buil
 
 ---
 *Last Updated: December 2024*
+
