@@ -192,8 +192,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # BUILD FLAGS
 # =============================================================================
 # Constify JNINativeMethod tables (GrapheneOS/DivestOS)
-# PRODUCT_CFLAGS += -DCONSTIFY_JNI_NATIVE_METHOD_TABLES=1
-# PRODUCT_CPPFLAGS += -DCONSTIFY_JNI_NATIVE_METHOD_TABLES=1
+ PRODUCT_CFLAGS += -DCONSTIFY_JNI_NATIVE_METHOD_TABLES=1
+ PRODUCT_CPPFLAGS += -DCONSTIFY_JNI_NATIVE_METHOD_TABLES=1
 
 # Exec-based spawning support (GrapheneOS)
 # PRODUCT_PROPERTY_OVERRIDES += \

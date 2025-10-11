@@ -5,7 +5,6 @@
 # =============================================================================
 # PERFORMANCE OPTIMIZATIONS
 # =============================================================================
-
 # Global compiler optimizations (CalyxOS approach)
 PRODUCT_CFLAGS += -O3 -fomit-frame-pointer -ffast-math
 PRODUCT_CPPFLAGS += -O3 -fomit-frame-pointer -ffast-math
@@ -149,18 +148,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.io.scheduler=mq-deadline \
     ro.vendor.io.scheduler=mq-deadline
 
-# =============================================================================
-# BUILD OPTIMIZATIONS
-# =============================================================================
-
-# Constify JNINativeMethod tables (GrapheneOS/DivestOS)
-PRODUCT_CFLAGS += -DCONSTIFY_JNI_NATIVE_METHOD_TABLES=1
-PRODUCT_CPPFLAGS += -DCONSTIFY_JNI_NATIVE_METHOD_TABLES=1
-
-# Exec-based spawning support (GrapheneOS)
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.exec_spawning=1 \
-    ro.vendor.exec_spawning=1
 
 # =============================================================================
 # TELEMETRY BLOCKING
