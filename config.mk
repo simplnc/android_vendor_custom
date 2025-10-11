@@ -287,7 +287,7 @@ PRODUCT_SYSTEM_PROPERTIES += \
 # Include optimization configurations
 # These files contain all compiler optimizations, security enhancements, and performance tuning
  $(call inherit-product, vendor/custom/config/build_optimizations.mk)
-# $(call inherit-product, vendor/custom/config/framework_optimizations.mk)
+ $(call inherit-product, vendor/custom/config/framework_optimizations.mk)
  $(call inherit-product, vendor/custom/config/performance_security_optimizations.mk)
 
 # Include kernel hardening configuration
