@@ -50,9 +50,8 @@ PRODUCT_PACKAGES += \
     image.toolbox \
     native.alpha \
     nethical.digipaws \
-    nethical.locklock 
-
-    # org.thoughtcrime.securesms
+    nethical.locklock \
+    org.thoughtcrime.securesms
     
 # Make custom apps the default system apps (minimal for boot fix)
 PRODUCT_PROPERTY_OVERRIDES += \
