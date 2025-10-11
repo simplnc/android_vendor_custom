@@ -7,26 +7,26 @@
 # =============================================================================
 
 # Global optimization flags
-# GLOBAL_CFLAGS := \
-#     -O3 \
-#     -fomit-frame-pointer \
-#     -ffast-math \
-#     -funroll-loops \
-#     -fno-strict-aliasing \
-#     -fstack-protector-strong
+GLOBAL_CFLAGS := \
+    -O3 \
+    -fomit-frame-pointer \
+    -ffast-math \
+    -funroll-loops \
+    -fno-strict-aliasing \
+    -fstack-protector-strong
 
-# GLOBAL_CPPFLAGS := \
-#     -O3 \
-#     -fomit-frame-pointer \
-#     -ffast-math \
-#     -funroll-loops \
-#     -fno-strict-aliasing \
-#     -fstack-protector-strong
+GLOBAL_CPPFLAGS := \
+    -O3 \
+    -fomit-frame-pointer \
+    -ffast-math \
+    -funroll-loops \
+    -fno-strict-aliasing \
+    -fstack-protector-strong
 
-# GLOBAL_LDFLAGS := \
-#     -Wl,-O3 \
-#     -Wl,--as-needed \
-#     -Wl,--gc-sections
+GLOBAL_LDFLAGS := \
+    -Wl,-O3 \
+    -Wl,--as-needed \
+    -Wl,--gc-sections
 
 # =============================================================================
 # MEMORY ALLOCATOR OPTIMIZATION
@@ -52,18 +52,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # =============================================================================
 
 # Kernel security parameters
-# KERNEL_SECURITY_PARAMS := \
-#     kernel.randomize_va_space=2 \
-#     kernel.kptr_restrict=2 \
-#     kernel.perf_event_paranoid=3 \
-#     kernel.yama.ptrace_scope=1 \
-#     kernel.exec-shield=1 \
-#     kernel.dmesg_restrict=1 \
-#     kernel.unprivileged_bpf_disabled=1 \
-#     kernel.kexec_load_disabled=1
+ KERNEL_SECURITY_PARAMS := \
+    kernel.randomize_va_space=2 \
+    kernel.kptr_restrict=2 \
+    kernel.perf_event_paranoid=3 \
+    kernel.yama.ptrace_scope=1 \
+    kernel.exec-shield=1 \
+    kernel.dmesg_restrict=1 \
+    kernel.unprivileged_bpf_disabled=1 \
+    kernel.kexec_load_disabled=1
 
 # Apply kernel parameters
-# PRODUCT_PROPERTY_OVERRIDES += $(foreach param,$(KERNEL_SECURITY_PARAMS),$(param))
+ PRODUCT_PROPERTY_OVERRIDES += $(foreach param,$(KERNEL_SECURITY_PARAMS),$(param))
 
 # =============================================================================
 # NETWORK SECURITY & PRIVACY
