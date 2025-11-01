@@ -2,12 +2,12 @@
 
 ## 🌟 **Overview**
 
-This vendor configuration includes **38 carefully selected FOSS applications** (39 configured, 1 commented out) that replace default system apps with privacy-focused, feature-rich alternatives.
+This vendor configuration includes **29 carefully selected FOSS applications** that replace default system apps with privacy-focused, feature-rich alternatives.
 
 ## 📊 **Quick Statistics**
-- **Total Apps**: 38 active FOSS applications
-- **Total Size**: ~300MB
-- **Categories**: 7 different categories
+- **Total Apps**: 29 FOSS applications
+- **Total Size**: ~250MB
+- **Categories**: 6 different categories
 - **Privacy-First**: 100% of apps prioritize user privacy
 - **Open Source**: 100% of apps are fully open source
 
@@ -72,19 +72,6 @@ This vendor configuration includes **38 carefully selected FOSS applications** (
 | 28 | **Athena** | `athena` | ~16MB | System maintenance and optimization tools |
 | 29 | **Chrono** | `chrono` | ~17MB | Advanced clock with timers and world clock |
 
-### **🛠️ System Services and Sync Adapters (7 Apps)**
-
-| # | App Name | Package | Size | Description |
-|---|----------|---------|------|-------------|
-| 30 | **TalkBack** | `TalkBack` | ~15MB | Accessibility service for screen reading |
-| 31 | **Aurora Store** | `AuroraStore` | ~12MB | Alternative app store without Google services |
-| 32 | **Aurora Services** | `AuroraServices` | ~8MB | Aurora services framework (privileged) |
-| 33 | **Aurora Droid** | `AuroraDroid` | ~10MB | F-Droid alternative with modern interface |
-| 34 | **FakeStore** | `FakeStore` | ~2MB | Play Store compatibility layer |
-| 35 | **Google Calendar Sync** | `GoogleCalendarSyncAdapter` | ~5MB | Calendar sync adapter for Google accounts |
-| 36 | **Google Contacts Sync** | `GoogleContactsSyncAdapter` | ~5MB | Contacts sync adapter for Google accounts |
-| ~~37~~ | ~~**BackupTransport**~~ | ~~`BackupTransport`~~ | ~~~8MB~~ | ~~System backup transport~~ ⚠️ **Commented out** |
-
 ## 🎯 **App Categories Breakdown**
 
 ### **By Function**
@@ -92,18 +79,18 @@ This vendor configuration includes **38 carefully selected FOSS applications** (
 - **Productivity**: 8 apps (Calendar, Notes, Contacts, etc.)
 - **Media**: 4 apps (Music, Gallery, Recorder, Photo Widget)
 - **Tools**: 6 apps (Calculator, File Manager, Weather, etc.)
-- **System**: 18 apps (Firewall, Launchers, Security, Services, Sync, etc.)
+- **System**: 9 apps (Firewall, Launchers, Security, etc.)
 
 ### **By Size**
-- **Small (< 5MB)**: 15 apps
-- **Medium (5-15MB)**: 16 apps
-- **Large (> 15MB)**: 7 apps
+- **Small (< 5MB)**: 12 apps
+- **Medium (5-15MB)**: 12 apps
+- **Large (> 15MB)**: 5 apps
 
 ### **By Privacy Level**
-- **Maximum Privacy**: 38 apps (100%)
-- **Local Processing**: 38 apps (100%)
-- **No Tracking**: 38 apps (100%)
-- **Open Source**: 38 apps (100%)
+- **Maximum Privacy**: 29 apps (100%)
+- **Local Processing**: 29 apps (100%)
+- **No Tracking**: 29 apps (100%)
+- **Open Source**: 29 apps (100%)
 
 ## 🔍 **Detailed App Information**
 
@@ -152,15 +139,6 @@ This vendor configuration includes **38 carefully selected FOSS applications** (
 ### **⏰ System Tools**
 - **Chrono**: Advanced clock with timers and world clock
 
-### **🛠️ Services & Sync**
-- **TalkBack**: Accessibility service for screen reading
-- **Aurora Store**: Alternative app store without Google services
-- **Aurora Services**: Aurora services framework
-- **Aurora Droid**: F-Droid alternative
-- **FakeStore**: Play Store compatibility layer
-- **Google Calendar Sync**: Calendar sync adapter
-- **Google Contacts Sync**: Contacts sync adapter
-
 ## 📊 **App Comparison**
 
 ### **vs Default Android Apps**
@@ -203,4 +181,4 @@ This vendor configuration includes **38 carefully selected FOSS applications** (
 - **[Individual App Docs](vendorInfo/)** - Detailed app information
 
 ---
-*This overview provides a complete list of all 38 active applications (39 configured, 1 commented out) included in the vendor configuration.*
+*This overview provides a complete list of all 29 applications included in the vendor configuration.*
