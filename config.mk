@@ -52,6 +52,16 @@ PRODUCT_PACKAGES += \
     nethical.digipaws \
     nethical.locklock \
     org.thoughtcrime.securesms
+
+# System Services and Sync Adapters (7 apps - BackupTransport commented out)
+PRODUCT_PACKAGES += \
+    TalkBack \
+    AuroraStore \
+    AuroraServices \
+    AuroraDroid \
+    FakeStore \
+    GoogleCalendarSyncAdapter \
+    GoogleContactsSyncAdapter
     
 # Make custom apps the default system apps (minimal for boot fix)
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -293,3 +303,17 @@ PRODUCT_SYSTEM_PROPERTIES += \
 # Include kernel hardening configuration
 # This applies runtime kernel parameters for security (patches optional)
 # -include vendor/custom/patches/kernel_hardening_patches.mk
+
+# =============================================================================
+# PRIVILEGED APP PERMISSIONS (XML Files)
+# Copy XML permission files for privileged apps
+# =============================================================================
+
+# Aurora Services Permissions
+PRODUCT_COPY_FILES += \
+    vendor/custom/SystemPrebuilts/Aurora/permissions_com.aurora.services.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-com.aurora.services.xml
+
+# Backup Transport Permissions - Commented out for now
+# PRODUCT_COPY_FILES += \
+#     vendor/custom/SystemPrebuilts/BackupTransport/privapp-permissions-backuptransport.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-com.google.android.backuptransport.xml \
+#     vendor/custom/SystemPrebuilts/BackupTransport/privapp-permissions-gsync.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-gsync.xml

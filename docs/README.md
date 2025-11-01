@@ -2,19 +2,19 @@
 
 ## 📚 **Documentation Overview**
 
-This directory contains comprehensive documentation for the Custom LineageOS Configuration, which provides **23 total applications** to replace the default LineageOS app suite.
+This directory contains comprehensive documentation for the Custom LineageOS Configuration, which provides **38 total applications** (39 configured, 1 commented out) to replace the default LineageOS app suite.
 
 ## 🚀 **Quick Reference**
 
 ### **Application Count**
-- **SystemPrebuilts**: 23 APK applications
-- **Total**: 23 custom applications
+- **SystemPrebuilts**: 40 APK applications
+- **Total**: 38 active custom applications (BackupTransport commented out)
 - **All apps properly configured** in Android.bp and config.mk
 - **User uninstallable apps**: duckduck, com.mardous.booming, org.breezyweather, chrono
 
 ### **Build System**
-- **Configuration**: `config.mk` (127 lines)
-- **Soong Build**: `Android.bp` (465 lines)
+- **Configuration**: `config.mk` (321 lines)
+- **Soong Build**: `Android.bp` (793 lines)
 - **Clean, organized structure** ready for production
 
 ## 📱 **Application Categories**
@@ -51,6 +51,16 @@ This directory contains comprehensive documentation for the Custom LineageOS Con
 ### **🔧 System Tool Apps (2)**
 22. **Athena**: `athena` - System maintenance and optimization
 23. **Chrono**: `chrono` - Advanced clock and timer ⚠️ **User Uninstallable**
+
+### **🛠️ System Services and Sync Adapters (7 apps)**
+24. **TalkBack**: `TalkBack` - Accessibility service
+25. **Aurora Store**: `AuroraStore` - Alternative app store
+26. **Aurora Services**: `AuroraServices` - Aurora services (privileged)
+27. **Aurora Droid**: `AuroraDroid` - F-Droid alternative
+28. **FakeStore**: `FakeStore` - Play Store compatibility
+29. **Google Calendar Sync**: `GoogleCalendarSyncAdapter` - Calendar sync adapter
+30. **Google Contacts Sync**: `GoogleContactsSyncAdapter` - Contacts sync adapter
+31. ~~**BackupTransport**: `BackupTransport` - System backup transport~~ ⚠️ **Commented out**
 
 ## 📖 **Documentation Files**
 
@@ -118,8 +128,8 @@ PRODUCT_PACKAGES_REMOVE += \
 - **Telephony**: Critical services preserved
 
 ### **App Categories**
-- **SystemPrebuilts**: 23 APK applications (~200MB+ total)
-- **Total Applications**: 23 custom applications
+- **SystemPrebuilts**: 40 APK applications (~250MB+ total)
+- **Total Applications**: 38 active custom applications (1 commented out)
 
 ### **File Sizes**
 - **Largest Apps**: Gallery (~23MB), Email (~15MB), Weather (~14MB)
@@ -143,7 +153,7 @@ make bacon
 ```
 
 ### **3. Verification**
-- Check that all 23 apps are included
+- Check that all 38 apps are included
 - Verify default app configurations
 - Confirm system app removal
 
@@ -227,7 +237,7 @@ grep -r "PRODUCT_PACKAGES_REMOVE" vendor/custom/
 ---
 
 **Status**: Production Ready ✅  
-**Total Apps**: 23 (23 SystemPrebuilts)  
+**Total Apps**: 38 active (40 configured, 1 commented out)  
 **Build System**: Unified Soong + Make  
 **Compatibility**: LineageOS 18.1+ / Android 12+  
 **Last Updated**: Current configuration

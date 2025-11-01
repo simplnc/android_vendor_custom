@@ -184,22 +184,34 @@ PRODUCT_PACKAGES += \
     firewall \
     com.kin.easynotes
 
-# New Applications (9 apps)
+# New Applications (12 apps)
 PRODUCT_PACKAGES += \
     com.demizo.daily_you \
     com.devrinth.launchpad \
     com.kaleedtc.privacium \
     com.shezik.drawanywhere \
-    com.stario.launcher \
+    com.vishal2376.snaptick \
     image.toolbox \
     native.alpha \
     nethical.digipaws \
-    nethical.locklock
+    nethical.locklock \
+    org.thoughtcrime.securesms
 
 # System Tool Applications (2 apps)
 PRODUCT_PACKAGES += \
     athena \
     chrono
+
+# System Services and Sync Adapters (7 apps - BackupTransport commented out)
+PRODUCT_PACKAGES += \
+    TalkBack \
+    AuroraStore \
+    AuroraServices \
+    AuroraDroid \
+    # BackupTransport \
+    FakeStore \
+    GoogleCalendarSyncAdapter \
+    GoogleContactsSyncAdapter
 
 # Default App Configuration
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -649,6 +649,146 @@ android_app_import {
     ],
 }
 
+// TalkBack Applications - Accessibility
+android_app_import {
+    name: "TalkBack",
+    apk: "SystemPrebuilts/TalkBack.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,         // Accessibility services need privileged access
+    product_specific: true,
+    overrides: [
+        "TalkBack",           // AOSP TalkBack
+        "com.google.android.marvin.talkback", // Google TalkBack
+        "com.android.talkback", // AOSP TalkBack package
+    ],
+}
+
+// Aurora Applications - Alternative App Store
+android_app_import {
+    name: "AuroraStore",
+    apk: "SystemPrebuilts/Aurora/AuroraStore.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "PlayStore",          // Google Play Store
+        "FakeStore",          // Fake Store
+        "com.android.vending", // Play Store package
+    ],
+}
+
+android_app_import {
+    name: "AuroraServices",
+    apk: "SystemPrebuilts/Aurora/AuroraServices.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,        // Services need privileged access
+    product_specific: true,
+    overrides: [
+        "GoogleServices",     // Google Play Services
+        "GmsCore",            // Google Mobile Services Core
+        "com.google.android.gms", // GMS package
+    ],
+}
+
+android_app_import {
+    name: "AuroraDroid",
+    apk: "SystemPrebuilts/Aurora/AuroraDroid.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "Fdroid",            // F-Droid
+        "org.fdroid.fdroid", // F-Droid package
+    ],
+}
+
+// Backup Transport Applications - System Backup
+// Commented out for now
+/*
+android_app_import {
+    name: "BackupTransport",
+    apk: "SystemPrebuilts/BackupTransport/BackupTransport.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,        // Backup transport needs privileged access
+    product_specific: true,
+    overrides: [
+        "GoogleBackupTransport", // Google Backup Transport
+        "com.google.android.backuptransport", // Google Backup Transport package
+    ],
+}
+*/
+
+// FakeStore Applications - Play Store Compatibility
+android_app_import {
+    name: "FakeStore",
+    apk: "SystemPrebuilts/FakeStore/FakeStore.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: false,
+    product_specific: true,
+    overrides: [
+        "PlayStore",          // Google Play Store
+        "com.android.vending", // Play Store package
+    ],
+}
+
+// Google Sync Adapters - Calendar Sync
+android_app_import {
+    name: "GoogleCalendarSyncAdapter",
+    apk: "SystemPrebuilts/GoogleCalendarSyncAdapter/GoogleCalendarSyncAdapter.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,        // Sync adapters need privileged access
+    product_specific: true,
+    overrides: [
+        "GoogleCalendarSync", // Google Calendar Sync
+        "com.google.android.syncadapters.calendar", // Google Calendar Sync package
+    ],
+}
+
+// Google Sync Adapters - Contacts Sync
+android_app_import {
+    name: "GoogleContactsSyncAdapter",
+    apk: "SystemPrebuilts/GoogleContactsSyncAdapter/GoogleContactsSyncAdapter.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,        // Sync adapters need privileged access
+    product_specific: true,
+    overrides: [
+        "GoogleContactsSync", // Google Contacts Sync
+        "com.google.android.syncadapters.contacts", // Google Contacts Sync package
+    ],
+}
+
 // ============================================================================
 // NOTE: All apps are now handled by Soong (Android.bp) build system
 // All redundant Android.mk files have been removed
