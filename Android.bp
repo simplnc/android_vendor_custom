@@ -651,6 +651,8 @@ android_app_import {
 }
 
 // TalkBack Applications - Accessibility
+// Commented out to fix bootloop
+/*
 android_app_import {
     name: "TalkBack",
     apk: "SystemPrebuilts/TalkBack.apk",
@@ -667,6 +669,7 @@ android_app_import {
         "com.android.talkback", // AOSP TalkBack package
     ],
 }
+*/
 
 // Aurora Applications - Alternative App Store
 android_app_import {
@@ -791,6 +794,8 @@ android_app_import {
 }
 
 // Lawnchair Launcher - Privileged System App
+// Commented out to fix bootloop
+/*
 android_app_import {
     name: "Lawnchair",
     apk: "SystemPrebuilts/lawnchair/Lawnchair.apk",
@@ -834,6 +839,7 @@ prebuilt_etc_xml {
     sub_dir: "permissions",
     system_ext_specific: true,
 }
+*/
 
 // ============================================================================
 // NOTE: All apps are now handled by Soong (Android.bp) build system
