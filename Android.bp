@@ -296,6 +296,7 @@ android_app_import {
     dex_preopt: {
         enabled: false,
     },
+    privileged: true,        // Firewall needs privileged access for network control
     product_specific: true,
     overrides: [
         "Firewall",          // Firewall apps
@@ -787,6 +788,51 @@ android_app_import {
         "GoogleContactsSync", // Google Contacts Sync
         "com.google.android.syncadapters.contacts", // Google Contacts Sync package
     ],
+}
+
+// Lawnchair Launcher - Privileged System App
+android_app_import {
+    name: "Lawnchair",
+    apk: "SystemPrebuilts/lawnchair/Lawnchair.apk",
+    preprocessed: false,     // Contains compressed DEX files
+    certificate: "platform", // Use platform certificate for non-preprocessed APK
+    privileged: true,        // Launcher needs privileged access for system integration
+    system_ext_specific: true, // Install to system_ext partition
+    dex_preopt: {
+        enabled: false,
+    },
+    required: [
+        "lawnchair-hiddenapi-package-whitelist",
+        "privapp-permissions-lawnchair",
+    ],
+    overrides: [
+        "Home",                  // AOSP default home
+        "Launcher2",             // Legacy launcher
+        "Launcher3",             // AOSP Launcher3
+        "Launcher3QuickStep",    // QuickStep launcher
+        "NexusLauncherRelease",  // Nexus launcher
+        // Note: TrebuchetQuickStep and Trebuchet NOT overridden - keeping both available
+        "com.android.launcher3", // AOSP launcher3 package
+        "com.stario.launcher",   // Stario launcher (if present)
+    ],
+}
+
+// Hidden API Whitelist Configuration for Lawnchair
+prebuilt_etc_xml {
+    name: "lawnchair-hiddenapi-package-whitelist",
+    src: "SystemPrebuilts/lawnchair/sysconfig/lawnchair-hiddenapi-package-whitelist.xml",
+    filename_from_src: true,
+    sub_dir: "sysconfig",
+    system_ext_specific: true,
+}
+
+// Privileged Permissions Configuration for Lawnchair
+prebuilt_etc_xml {
+    name: "privapp-permissions-lawnchair",
+    src: "SystemPrebuilts/lawnchair/permissions/privapp-permissions-lawnchair.xml",
+    filename_from_src: true,
+    sub_dir: "permissions",
+    system_ext_specific: true,
 }
 
 // ============================================================================

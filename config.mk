@@ -70,13 +70,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.filemanager_default=org.fossify.filemanager \
     ro.config.contacts_default=org.fossify.contacts \
     ro.config.recorder_default=recordyou \
-    ro.config.notes_default=com.kin.easynotes 
+    ro.config.notes_default=com.kin.easynotes \
+    ro.config.launcher_default=TrebuchetQuickStep \
+    ro.launcher.default=com.android.launcher3
+
+# QuickSwitch Support for Lawnchair (Android 10+)
+# Lawnchair available as alternative launcher
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.quickswitch_lawnchair_shipped=1 
 
 # Launcher Configuration - Dual Launcher Setup
-# TrebuchetQuickStep as main launcher + Launcher3QuickStep as fallback
+# TrebuchetQuickStep as default + Lawnchair as alternative
 PRODUCT_PACKAGES += \
     TrebuchetQuickStep \
-    Launcher3QuickStep
+    Launcher3QuickStep \
+    Lawnchair \
+    lawnchair-hiddenapi-package-whitelist \
+    privapp-permissions-lawnchair
 
 # CRITICAL: Complete Navigation System Support
 # Enable ALL navigation options (gesture, button, classic, legacy)
