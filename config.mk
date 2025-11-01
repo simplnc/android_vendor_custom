@@ -53,9 +53,9 @@ PRODUCT_PACKAGES += \
     nethical.locklock \
     org.thoughtcrime.securesms
 
-# System Services and Sync Adapters (6 apps - TalkBack, BackupTransport commented out)
+# System Services and Sync Adapters (7 apps - BackupTransport commented out)
 PRODUCT_PACKAGES += \
-    # TalkBack \  # Commented out to fix bootloop
+    TalkBack \
     AuroraStore \
     AuroraServices \
     AuroraDroid \
@@ -75,18 +75,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.launcher.default=com.android.launcher3
 
 # QuickSwitch Support for Lawnchair (Android 10+)
-# Commented out - Lawnchair commented out to fix bootloop
-# PRODUCT_PRODUCT_PROPERTIES += \
-#     persist.sys.quickswitch_lawnchair_shipped=1 
+# Lawnchair available as alternative launcher
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.quickswitch_lawnchair_shipped=1 
 
-# Launcher Configuration - TrebuchetQuickStep as Default
-# Lawnchair commented out to fix bootloop
+# Launcher Configuration - Dual Launcher Setup
+# TrebuchetQuickStep as default + Lawnchair as alternative
 PRODUCT_PACKAGES += \
     TrebuchetQuickStep \
-    Launcher3QuickStep
-    # Lawnchair \  # Commented out to fix bootloop
-    # lawnchair-hiddenapi-package-whitelist \
-    # privapp-permissions-lawnchair
+    Launcher3QuickStep \
+    Lawnchair \
+    lawnchair-hiddenapi-package-whitelist \
+    privapp-permissions-lawnchair
 
 # CRITICAL: Complete Navigation System Support
 # Enable ALL navigation options (gesture, button, classic, legacy)
@@ -319,14 +319,11 @@ PRODUCT_SYSTEM_PROPERTIES += \
 # Copy XML permission files for privileged apps
 # =============================================================================
 
-# Aurora Services Permissions - Commented out to fix bootloop
-# PRODUCT_COPY_FILES += \
-#     vendor/custom/SystemPrebuilts/Aurora/permissions_com.aurora.services.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-com.aurora.services.xml
+# Aurora Services Permissions
+PRODUCT_COPY_FILES += \
+    vendor/custom/SystemPrebuilts/Aurora/permissions_com.aurora.services.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-com.aurora.services.xml
 
 # Backup Transport Permissions - Commented out for now
 # PRODUCT_COPY_FILES += \
 #     vendor/custom/SystemPrebuilts/BackupTransport/privapp-permissions-backuptransport.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-com.google.android.backuptransport.xml \
 #     vendor/custom/SystemPrebuilts/BackupTransport/privapp-permissions-gsync.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-gsync.xml
-
-# Lawnchair Permissions - Commented out to fix bootloop
-# Lawnchair permissions are handled via prebuilt_etc_xml in Android.bp
