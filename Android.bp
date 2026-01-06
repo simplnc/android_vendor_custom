@@ -112,23 +112,6 @@ android_app_import {
     ],
 }
 
-// Ambient Music Applications
-android_app_import {
-    name: "ambient.music",
-    apk: "SystemPrebuilts/amusic/Ambient-Music-v3.3.2.apk",
-    preprocessed: false,     // Contains compressed JNI libraries
-    certificate: "platform", // Use platform certificate for non-preprocessed APK
-    dex_preopt: {
-        enabled: false,
-    },
-    product_specific: true,
-    overrides: [
-        "AmbientMusic",      // Ambient music apps
-        "BackgroundMusic",   // Background music apps
-        "RelaxingMusic",     // Relaxing music apps
-        "com.android.ambientmusic", // AOSP ambient music package
-    ],
-}
 
 // Recorder Applications
 android_app_import {
@@ -174,24 +157,6 @@ android_app_import {
     ],
 }
 
-// WiFi Info Applications
-android_app_import {
-    name: "com.truemlgpro.wifiinfo",
-    apk: "SystemPrebuilts/wifiInfo/com.truemlgpro.wifiinfo_1610.apk",
-    preprocessed: false,     // Contains compressed JNI libraries
-    certificate: "platform", // Use platform certificate for non-preprocessed APK
-    dex_preopt: {
-        enabled: false,
-    },
-    product_specific: true,
-    overrides: [
-        "WifiInfo",          // WiFi information apps
-        "NetworkInfo",       // Network information
-        "WifiAnalyzer",      // WiFi analyzer apps
-        "WifiManager",       // WiFi management apps
-        // Note: Not overriding com.android.wifi or com.android.network to avoid system conflicts
-    ],
-}
 
 // Email Applications
 android_app_import {
@@ -594,24 +559,6 @@ android_app_import {
     ],
 }
 
-// Stario Launcher Applications
-android_app_import {
-    name: "com.stario.launcher",
-    apk: "SystemPrebuilts/starioLauncher/com.stario.launcher_91.apk",
-    preprocessed: false,     // Contains compressed JNI libraries
-    certificate: "platform", // Use platform certificate for non-preprocessed APK
-    dex_preopt: {
-        enabled: false,
-    },
-    privileged: false,
-    product_specific: true,
-    overrides: [
-        "StarioLauncher",     // Stario launcher apps
-        "CustomLauncher",     // Custom launcher apps
-        "AlternativeLauncher", // Alternative launcher apps
-        "com.android.stariolauncher", // AOSP Stario launcher package
-    ],
-}
 
 // Aurora Applications - Alternative App Store
 android_app_import {
@@ -715,46 +662,6 @@ android_app_import {
     overrides: [
         "GoogleContactsSync", // Google Contacts Sync
         "com.google.android.syncadapters.contacts", // Google Contacts Sync package
-    ],
-}
-
-
-// SpeakThat Applications - Text to Speech
-android_app_import {
-    name: "SpeakThat",
-    apk: "SystemPrebuilts/speakthat/SpeakThat.apk",
-    preprocessed: false,     // Contains compressed DEX files
-    certificate: "platform", // Use platform certificate for non-preprocessed APK
-    dex_preopt: {
-        enabled: false,
-    },
-    privileged: false,
-    product_specific: true,
-    overrides: [
-        "SpeakThat",          // SpeakThat apps
-        "TextToSpeech",       // Text to speech apps
-        "TTS",                // TTS apps
-        "com.android.tts",    // AOSP TTS package
-    ],
-}
-
-// DAVx5 Applications - CalDAV/CardDAV Sync
-android_app_import {
-    name: "at.bitfire.davdroid",
-    apk: "SystemPrebuilts/davx5/at.bitfire.davdroid_405070100.apk",
-    preprocessed: false,     // Contains compressed DEX files
-    certificate: "platform", // Use platform certificate for non-preprocessed APK
-    dex_preopt: {
-        enabled: false,
-    },
-    privileged: false,
-    product_specific: true,
-    overrides: [
-        "DAVx5",             // DAVx5 apps
-        "DavDroid",          // DavDroid apps
-        "CalDAV",            // CalDAV sync apps
-        "CardDAV",           // CardDAV sync apps
-        "com.android.davdroid", // AOSP DavDroid package
     ],
 }
 
